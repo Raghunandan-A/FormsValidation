@@ -78,10 +78,14 @@ body {
     .jumbotron {
       border-bottom: 0;
     }
-    th{
-      text-align: left;
-      text-indent: top;
-    }
+    
+    th, td {
+      padding: 10px;
+  }
+  table, th, td {
+    border: 1px solid black;
+   align-content: center;
+}
   }
   
   
