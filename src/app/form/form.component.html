@@ -79,7 +79,15 @@
           </div>
           <div class="form-group col-md-6">
             <label for="College">College Name</label>
-            <input type="text" class="form-control" id="College" placeholder="College">
+            <input type="text" class="form-control" id="College" placeholder="College Name" formControlName="College">
+            <div *ngIf="College.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
+                <div *ngIf="College.errors.pattern">
+                  College not valid.
+                </div> 
+                <div *ngIf="College.errors.required">
+                    College required.
+                  </div> 
+              </div>	
           </div>
         </div>
         <div class="form-row">

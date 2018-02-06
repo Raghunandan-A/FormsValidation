@@ -13,6 +13,7 @@ export class FormComponent implements OnInit {
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   BranchPattern="^[a-zA-z]{3}$";
   RollPattern="^[0-9]{5}$";
+  collegePattern = "^[a-zA-Z]$";
   isValidFormSubmitted = null;
   
   userForm = this.formBuilder.group({
@@ -20,6 +21,7 @@ export class FormComponent implements OnInit {
     LastName: ['', [Validators.required,Validators.minLength(5), Validators.pattern(this.lnamePattern)]],
      Branch:['', [Validators.minLength(3), Validators.pattern(this.BranchPattern)]],
     Email: ['', [Validators.required,Validators.pattern(this.emailPattern)]],
+    College: ['', [Validators.required,Validators.pattern(this.collegePattern)]],
     RollNumber: ['', [Validators.required,Validators.pattern(this.RollPattern)]],
   });
   
@@ -53,7 +55,9 @@ export class FormComponent implements OnInit {
   get RollNumber() {
     return this.userForm.get('RollNumber');
   }
-  
+  get College() {
+    return this.userForm.get('College');
+  }    
   get Email() {
     return this.userForm.get('Email');
   }      
