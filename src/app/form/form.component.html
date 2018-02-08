@@ -1,7 +1,7 @@
 <div class="container centerAlignClass">
   <div class="card w-75">
     <div class="card-body">
-      <h5 class="card-title">Registration Form</h5>
+      <h5 class="card-title text-center p-3 mb-2 bg-dark text-white " >Registration Form</h5>
       <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -41,7 +41,10 @@
             <label for="Roll Number">Roll Number</label>
             <input type="" class="form-control" id="Roll Number" placeholder="Roll Number" formControlName="RollNumber">
             <div *ngIf="RollNumber.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
-                <div *ngIf="RollNumber.errors.pattern">
+              <div *ngIf="RollNumber.errors.required">
+                Roll Number required.
+              </div>  
+              <div *ngIf="RollNumber.errors.pattern">
                   Roll Number not valid(5 digits)+(1 char)+(4digits).
                 </div> 
                
@@ -64,18 +67,36 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="DateOfBirth">Date of Birth</label>
-            <input type="" class="form-control" id="DateOfBirth" placeholder="MM/DD/YYYY">
+            <input type="" class="form-control" id="DateOfBirth" placeholder="MM/DD/YYYY" formControlName="DOB">
+            <div *ngIf="DOB.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
+              <div *ngIf="DOB.errors.pattern">
+                DOB is of pattern MM/DD/YYYY.
+              </div> 
+             
+            </div>
           </div>
           <div class="form-group col-md-6">
             <label for="Year">Year of Passing</label>
-            <input type="text" class="form-control" id="Year" placeholder="Year">
+            <input type="text" class="form-control" id="Year" placeholder="Year" formControlName="Year">
+            <div *ngIf="Year.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
+              <div *ngIf="Year.errors.pattern">
+                Year should between 2014-2018.
+              </div> 
+             
+            </div>
           </div>
         </div>
         
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="Place">Address</label>
-            <input type="" class="form-control" id="Place" placeholder="Address">
+            <input type="" class="form-control" id="Place" placeholder="Address" formControlName="Address">
+            <div *ngIf="Address.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
+              <div *ngIf="Address.errors.pattern">
+                Address is not valid
+              </div> 
+             
+            </div>
           </div>
           <div class="form-group col-md-6">
             <label for="College">College Name</label>
@@ -105,7 +126,13 @@
           </div>
           <div class="form-group col-md-6">
             <label for="Number">Phone Number</label>
-            <input type="Number" class="form-control" id="Number" placeholder="Phone Number">
+            <input type="text" class="form-control" id="Number" placeholder="Phone Number" formControlName="Phone">
+            <div *ngIf="Phone.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
+              <div *ngIf="Phone.errors.pattern">
+                Phone Number is not valid.
+              </div> 
+             
+            </div>
           </div>
         </div>
         
@@ -118,9 +145,53 @@
           </div>
         </div>
         <div class="form-group">
-          <button type="submit"  class="btn btn-primary" >Submit</button>
+          <button type="submit"  class="btn btn-primary center-block" >Submit</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<div class="card w-75">
+    <div class="card-body">
+      <h5 class="card-title text-center p-3 mb-2 bg-dark text-white " >Registration Form Details</h5>
+<div class="table-responsive">     
+  <div class="table_block">
+      <table class="table table-striped">
+          <thead class="thead-Info">
+              <tr>
+                  <th scope="col">FirstName</th>
+                  <th scope="col">LastName</th>
+                  <th scope="col">RollNumber</th>
+                  <th scope="col">Branch</th>
+                  <th scope="col">DOB</th>
+                  <th scope="col">Year Of Passing</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">College name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone Number</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let detail of UserDetails">
+                  <td>{{detail.FirstName}}</td>
+                  <td>{{detail.LastName}}</td>
+                  <td>{{detail.RollNumber}}</td>
+                  <td>{{detail.Branch}}</td>
+                  <td>{{detail.DOB}}</td>
+                  <td>{{detail.Year}}</td>
+                  <td>{{detail.Address}}</td>
+                  <td>{{detail.College}}</td>
+                  <td>{{detail.Email}}</td>
+                  <td>{{detail.Phone}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+  
