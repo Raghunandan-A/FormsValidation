@@ -7,30 +7,30 @@
           <div class="form-group col-md-6">
             <label for="FirstName">First Name</label>
             <input type="text" class="form-control" formControlName="FirstName" id="FirstName" placeholder="FirstName">
-            <div *ngIf="FirstName.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
-              <div *ngIf="FirstName.errors.required">
-                First name required.
+            <div *ngIf="userForm.controls['FirstName'].errors && !userForm.controls['FirstName'].pristine" Class = "error"> 
+              <div *ngIf="userForm.controls['FirstName'].errors.required">
+                <div [hidden]="!userForm.controls['FirstName'].errors.required">First name required.</div>
               </div>  
-              <div *ngIf="FirstName.errors.pattern">
-                First name not valid.
+              <div *ngIf="userForm.controls['FirstName'].errors.pattern">
+                <div [hidden]="!userForm.controls['FirstName'].errors.pattern"> First name not valid.</div>
               </div> 
-              <div *ngIf="FirstName.errors.minlength">
-                Name must be at least 5 characters long.
+              <div *ngIf="userForm.controls['FirstName'].errors.minlength">
+                <div [hidden]="!userForm.controls['FirstName'].errors.minlength">Name must be at least 5 characters long.</div> 
               </div>
             </div>
           </div>
           <div class="form-group col-md-6">
             <label for="LastName">Last Name</label>
-            <input type="text" class="form-control" id="LastName" placeholder="LastName">
-            <div *ngIf="FirstName.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
-              <div *ngIf="FirstName.errors.required">
-                Last name required.
+            <input type="text" class="form-control" id="LastName" placeholder="LastName" formControlName="LastName" >
+            <div *ngIf="userForm.controls['LastName'].errors && !userForm.controls['LastName'].pristine" Class = "error"> 
+              <div *ngIf="userForm.controls['LastName'].errors.required">
+                <div [hidden]="!userForm.controls['LastName'].errors.required">last name required.</div>
               </div>  
-              <div *ngIf="FirstName.errors.pattern">
-                Last name not valid.
+              <div *ngIf="userForm.controls['LastName'].errors.pattern">
+                <div [hidden]="!userForm.controls['LastName'].errors.pattern"> last name not valid.</div>
               </div> 
-              <div *ngIf="FirstName.errors.minlength">
-                Name must be at least 5 characters long.
+              <div *ngIf="userForm.controls['LastName'].errors.minlength">
+                <div [hidden]="!userForm.controls['LastName'].errors.minlength">Name must be at least 5 characters long.</div> 
               </div>
             </div>
           </div>
@@ -38,13 +38,13 @@
         
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="Roll Number">Roll Number</label>
+            <label for="RollNumber">Roll Number</label>
             <input type="" class="form-control" id="Roll Number" placeholder="Roll Number" formControlName="RollNumber">
-            <div *ngIf="RollNumber.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
-              <div *ngIf="RollNumber.errors.required">
+            <div *ngIf="userForm.controls['RollNumber'].errors && !userForm.controls['RollNumber'].pristine" Class= "error">                 
+              <div *ngIf="userForm.controls['RollNumber'].errors.required">
                 Roll Number required.
               </div>  
-              <div *ngIf="RollNumber.errors.pattern">
+              <div *ngIf="userForm.controls['RollNumber'].errors.pattern">
                   Roll Number not valid(5 digits)+(1 char)+(4digits).
                 </div> 
                
@@ -53,11 +53,11 @@
           <div class="form-group col-md-6">
             <label for="Branch">Branch</label>
             <input type="text" class="form-control" id="Branch" placeholder="Branch" formControlName="Branch" >
-            <div *ngIf="Branch.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
-                <div *ngIf="Branch.errors.pattern">
+            <div *ngIf="userForm.controls['Branch'].errors && !userForm.controls['Branch'].pristine" Class = "error">                 
+                <div *ngIf="userForm.controls['Branch'].errors.pattern">
                   Branch Name not valid.
                 </div> 
-                <div *ngIf="Branch.errors.minlength">
+                <div *ngIf="userForm.controls['Branch'].errors.minlength">
                   Name must be at least 3 characters long.
                 </div>
               </div>
@@ -66,10 +66,10 @@
         
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="DateOfBirth">Date of Birth</label>
+            <label for="DOB">Date of Birth</label>
             <input type="" class="form-control" id="DateOfBirth" placeholder="MM/DD/YYYY" formControlName="DOB">
-            <div *ngIf="DOB.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
-              <div *ngIf="DOB.errors.pattern">
+            <div *ngIf="userForm.controls['DOB'].errors && !userForm.controls['DOB'].pristine" Class= "error">                 
+              <div *ngIf="userForm.controls['DOB'].errors.pattern">
                 DOB is of pattern MM/DD/YYYY.
               </div> 
              
@@ -78,8 +78,8 @@
           <div class="form-group col-md-6">
             <label for="Year">Year of Passing</label>
             <input type="text" class="form-control" id="Year" placeholder="Year" formControlName="Year">
-            <div *ngIf="Year.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
-              <div *ngIf="Year.errors.pattern">
+            <div *ngIf="userForm.controls['Year'].errors && !userForm.controls['Year'].pristine" Class= "error">                 
+              <div *ngIf="userForm.controls['Year'].errors.pattern">
                 Year should between 2014-2018.
               </div> 
              
@@ -89,10 +89,10 @@
         
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="Place">Address</label>
-            <input type="" class="form-control" id="Place" placeholder="Address" formControlName="Address">
-            <div *ngIf="Address.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
-              <div *ngIf="Address.errors.pattern">
+            <label for="Address">Address</label>
+            <input type="" class="form-control" id="Address" placeholder="Address" formControlName="Address">
+            <div *ngIf="userForm.controls['Address'].errors && !userForm.controls['Address'].pristine" Class= "error">                 
+              <div *ngIf="userForm.controls['Address'].errors.pattern">
                 Address is not valid
               </div> 
              
@@ -101,11 +101,11 @@
           <div class="form-group col-md-6">
             <label for="College">College Name</label>
             <input type="text" class="form-control" id="College" placeholder="College Name" formControlName="College">
-            <div *ngIf="College.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
-                <div *ngIf="College.errors.pattern">
+            <div *ngIf="userForm.controls['College'].errors && !userForm.controls['College'].pristine" Class= "error"> 
+                <div *ngIf="userForm.controls['College'].errors.pattern">
                   College not valid.
                 </div> 
-                <div *ngIf="College.errors.required">
+                <div *ngIf="userForm.controls['College'].errors.required">
                     College required.
                   </div> 
               </div>	
@@ -115,20 +115,20 @@
           <div class="form-group col-md-6">
             <label for="Email">Email</label>
             <input type="Email" class="form-control" id="Email" placeholder="a.k@g.com" formControlName="Email">
-            <div *ngIf="Email.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
-                <div *ngIf="Email.errors.pattern">
+            <div *ngIf="userForm.controls['Email'].errors && !userForm.controls['Email'].pristine"Class= "error"> 
+                <div *ngIf="userForm.controls['Email'].errors.pattern">
                   Email not valid.
                 </div> 
-                <div *ngIf="Email.errors.required">
+                <div *ngIf="userForm.controls['Email'].errors.required">
                     Email required.
                   </div> 
               </div>	
           </div>
           <div class="form-group col-md-6">
-            <label for="Number">Phone Number</label>
-            <input type="text" class="form-control" id="Number" placeholder="Phone Number" formControlName="Phone">
-            <div *ngIf="Phone.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'">                 
-              <div *ngIf="Phone.errors.pattern">
+            <label for="Phone">Phone Number</label>
+            <input type="text" class="form-control" id="Phone" placeholder="Phone Number" formControlName="Phone">
+            <div *ngIf="userForm.controls['Phone'].errors && !userForm.controls['Phone'].pristine" Class= "error">                 
+              <div *ngIf="userForm.controls['Phone'].errors.pattern">
                 Phone Number is not valid.
               </div> 
              
@@ -145,7 +145,7 @@
           </div>
         </div>
         <div class="form-group">
-          <button type="submit"  class="btn btn-primary center-block" >Submit</button>
+          <button type="submit"  class="btn btn-primary center-block" [disabled]="userForm.invalid" >Submit</button>
         </div>
       </form>
     </div>
