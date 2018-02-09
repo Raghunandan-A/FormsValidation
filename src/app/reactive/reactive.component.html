@@ -1,0 +1,229 @@
+<div class="container reg">
+  <h3 class="text-center">REGISTRATION FORM</h3>
+  <form [formGroup]="myGroup" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Firstname :</label>
+        <input type="text" formControlName="firstname" class="form-control" placeholder="Enter the FirstName">
+
+        <div *ngIf="myGroup.controls['firstname'].errors && myGroup.controls['firstname'].touched &&(myGroup.controls['firstname'].errors.required || myGroup.controls['firstname'].errors.minlength || myGroup.controls['firstname'].errors.maxlength)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['firstname'].errors.required">
+            Firsntame is required
+          </div>
+          <div *ngIf="myGroup.controls['firstname'].errors.minlength">
+            Firstname must be at least 5 characters
+          </div>
+          <div *ngIf="myGroup.controls['firstname'].errors.maxlength">
+            Firstname should not exceed 50 characters long
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label>Lastname :</label>
+        <input type="text" formControlName="lastname" class="form-control" placeholder="Enter the LastName">
+        <div *ngIf="myGroup.controls['lastname'].errors && myGroup.controls['lastname'].touched &&(myGroup.controls['lastname'].errors.required || myGroup.controls['lastname'].errors.minlength || myGroup.controls['lastname'].errors.maxlength)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['lastname'].errors.required">
+            Lastname is required
+          </div>
+          <div *ngIf="myGroup.controls['lastname'].errors.minlength">
+            Lastname must be at least 5 characters
+          </div>
+          <div *ngIf="myGroup.controls['lastname'].errors.maxlength">
+            Lastname should not exceed 50 characters long
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label>RollNo :</label>
+        <input type="text" formControlName="rollno" class="form-control" placeholder="EX: XXXXXAXXXX">
+        <div *ngIf="myGroup.controls['rollno'].errors && myGroup.controls['rollno'].touched &&(myGroup.controls['rollno'].errors.required || myGroup.controls['rollno'].errors.minlength || myGroup.controls['rollno'].errors.maxlength || myGroup.controls['rollno'].errors.pattern)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['rollno'].errors.required">
+            Rollno is Required
+          </div>
+          <div *ngIf="myGroup.controls['rollno'].errors.pattern">
+            Rollno should be in 12345A6789 format
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <label>Branch :</label>
+        <input type="text" formControlName="branch" class="form-control" placeholder="Enter the Branch">
+        <div *ngIf="myGroup.controls['branch'].errors && myGroup.controls['branch'].touched &&(myGroup.controls['branch'].errors.required || myGroup.controls['branch'].errors.minlength || myGroup.controls['branch'].errors.maxlength || myGroup.controls['branch'].errors.pattern)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['branch'].errors.required">
+            Branch is required
+          </div>
+          <div *ngIf="myGroup.controls['branch'].errors.minlength">
+            Branch must be at least 5 characters
+          </div>
+          <div *ngIf="myGroup.controls['branch'].errors.pattern">
+             Branch consists pa
+            </div>
+          <div *ngIf="myGroup.controls['branch'].errors.maxlength">
+            Branch should not exceed 50 characters long
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label>D.O.B :</label>
+        <input type="text" formControlName="dateofbirth" class="form-control" placeholder="Date of Birth">
+        <div *ngIf="myGroup.controls['dateofbirth'].errors && myGroup.controls['dateofbirth'].touched &&(myGroup.controls['dateofbirth'].errors.required || myGroup.controls['dateofbirth'].errors.minlength || myGroup.controls['dateofbirth'].errors.maxlength)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['dateofbirth'].errors.required">
+            Dateofbirth is Required
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label>Email :</label>
+        <input type="text" formControlName="email" class="form-control" placeholder="Enter the Email">
+        <div *ngIf="myGroup.controls['email'].errors && myGroup.controls['email'].touched &&(myGroup.controls['email'].errors.required || myGroup.controls['email'].errors.minlength || myGroup.controls['email'].errors.maxlength || myGroup.controls['email'].errors.pattern)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['email'].errors.required">
+            Email is Required
+          </div>
+          <div *ngIf="myGroup.controls['email'].errors.pattern">
+            should match the pattern xxxxx@xx.xx
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label>College :</label>
+        <input type="text" formControlName="college" class="form-control" placeholder="Enter the college Name">
+        <div *ngIf="myGroup.controls['college'].errors && myGroup.controls['college'].touched &&(myGroup.controls['college'].errors.required || myGroup.controls['college'].errors.minlength || myGroup.controls['college'].errors.maxlength)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['college'].errors.required">
+            college is required.
+          </div>
+          <div *ngIf="myGroup.controls['college'].errors.minlength">
+            college must be at least 5 characters
+          </div>
+          <div *ngIf="myGroup.controls['college'].errors.maxlength">
+            college should not exceed 50 characters long
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Year of passedout :</label>
+        <input type="text" formControlName="yearofpassedout" class="form-control" placeholder="Passedout Year">
+        <div *ngIf="myGroup.controls['yearofpassedout'].errors && myGroup.controls['yearofpassedout'].touched &&(myGroup.controls['yearofpassedout'].errors.required || myGroup.controls['yearofpassedout'].errors.minlength || myGroup.controls['yearofpassedout'].errors.maxlength || myGroup.controls['yearofpassedout'].errors.pattern)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['yearofpassedout'].errors.required">
+            Year of Passedout is Required
+          </div>
+          <div *ngIf="myGroup.controls['yearofpassedout'].errors.pattern">
+            2015-2017 is allowed
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label>Place :</label>
+        <input type="text" formControlName="place" class="form-control" placeholder="Enter the Place">
+        <div *ngIf="myGroup.controls['place'].errors && myGroup.controls['place'].touched &&(myGroup.controls['place'].errors.required || myGroup.controls['place'].errors.minlength || myGroup.controls['place'].errors.maxlength)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['place'].errors.required">
+            Place is Required
+          </div>
+          <div *ngIf="myGroup.controls['place'].errors.minlength">
+            Place must be at least 5 characters
+          </div>
+          <div *ngIf="myGroup.controls['place'].errors.maxlength">
+            Place should not exceed 50 characters long
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label>Phone No :</label>
+        <input type="text" formControlName="phoneno" class="form-control" >
+        <div *ngIf="myGroup.controls['phoneno'].errors && myGroup.controls['phoneno'].touched &&(myGroup.controls['phoneno'].errors.required || myGroup.controls['phoneno'].errors.minlength || myGroup.controls['phoneno'].errors.maxlength)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['phoneno'].errors.required">
+            Phonenumber is Required
+          </div>
+          <div *ngIf="myGroup.controls['phoneno'].errors.minlength">
+            Should me min 10 numbers
+          </div>
+          <div *ngIf="myGroup.controls['phoneno'].errors.maxlength">
+            Should me max 10 numbers
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label>Phone No :</label>
+        <input type="text" class="form-control" formControlName="phoneno2" placeholder="Enter the Phonenumber">
+        <div *ngIf="myGroup.controls['phoneno2'].errors && myGroup.controls['phoneno2'].touched &&(myGroup.controls['phoneno2'].errors.required || myGroup.controls['phoneno2'].errors.minlength || myGroup.controls['phoneno2'].errors.maxlength || myGroup.controls['phoneno2'].errors.pattern)"
+          class="alert alert-danger">
+          <div *ngIf="myGroup.controls['phoneno2'].errors.required">
+            Phonenumber is Required
+          </div>
+          <div *ngIf="myGroup.controls['phoneno2'].errors.pattern">
+            Only numbers are allowed
+          </div>
+          <div *ngIf="myGroup.controls['phoneno2'].errors.minlength">
+            Should me min 10 numbers
+          </div>
+          <div *ngIf="myGroup.controls['phoneno2'].errors.maxlength">
+            Should be max 10 numbers
+          </div>
+        </div>
+      </div>
+    </div>
+    <p></p>
+    <div>
+      <button type="submit" class="btn btn-primary" >Submit</button>
+
+    </div>
+  </form>
+</div>
+<p></p>
+<div class="sty">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">F.Name</th>
+        <th scope="col">L.Name</th>
+        <th scope="col">RollNo</th>
+        <th scope="col">Branch</th>
+        <th scope="col">D.O.B</th>
+        <th scope="col">Email</th>
+        <th scope="col">college</th>
+        <th scope="col">Y.O.P.O</th>
+        <th scope="col">Place</th>
+        <th scope="col">Ph.No</th>
+        <th scope="col">Ph.No</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of list">
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.rollno}}</td>
+        <td>{{user.branch}}</td>
+        <td>{{user.dateofbirth}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.college}}</td>
+        <td>{{user.yearofpassedout}}</td>
+        <td>{{user.place}}</td>
+        <td>{{user.phoneno}}</td>
+        <td>{{user.phoneno2}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
