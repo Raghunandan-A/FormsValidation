@@ -42,7 +42,7 @@
             College name required.
           </div>
           <div *ngIf="studentForm.controls['college'].errors.minlength">
-            College name must be at least 10 char
+            College name must be at least 8 char
           </div>
           <div *ngIf="studentForm.controls['college'].errors.maxlength">
             College name should not more than 50 char.
@@ -58,7 +58,7 @@
             Address required.
           </div>
           <div *ngIf="studentForm.controls['address'].errors.minlength">
-            Address must be at least 10 char
+            Address must be at least 8 char
           </div>
           <div *ngIf="studentForm.controls['address'].errors.maxlength">
             Address should not more than 70 characters long.

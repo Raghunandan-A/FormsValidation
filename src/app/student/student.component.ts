@@ -20,13 +20,13 @@ export class StudentComponent implements OnInit {
     this.studentForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50),]],
       lastname: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
-      address: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(70)]],
-      college: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],
+      address: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(70)]],
+      college: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
       rollnumb: ['', [Validators.required, Validators.pattern('^[0-9]{5}[A-Z]{1}[0-9]{4}$')]],
       branch: ['', [Validators.required]],
       year: ['', [Validators.required]],
       dob: ['', [Validators.required,Validators.pattern('^[0-9]{8}$')]],
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
+      email: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
       mobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       phone: ['', [Validators.required,Validators.pattern('^[0-9]{10}$')]]
     });
