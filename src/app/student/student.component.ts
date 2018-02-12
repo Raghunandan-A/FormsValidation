@@ -24,7 +24,7 @@ export class StudentComponent implements OnInit {
       college: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
       rollnumb: ['', [Validators.required, Validators.pattern('^[0-9]{5}[A-Z]{1}[0-9]{4}$')]],
       branch: ['', [Validators.required,Validators.pattern('^[0-9]{8}$')]],
-      year: ['', [Validators.required]],
+      year: ['', [Validators.required,Validators.pattern('^201[4-8]$')]],
       dob: ['', [Validators.required,Validators.pattern('^[0-9]{8}$')]],
       email: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9._%-]+@+[a-z0-9.-]+[\.]+[a-z]{2,4}$')]],
       mobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
