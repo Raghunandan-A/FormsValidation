@@ -30,7 +30,7 @@ export class FormComponent implements OnInit
   DOBPattern="^(1[0-2]|0?[1-9])/(3[01]|[12][0-9]|0?[1-9])/(?:[0-9]{2})?[0-9]{2}$";
   YearPattern="^201[4-8]$";
   PhonePattern= "^((\\+91-?)|0)?[0-9]{10}$";
-  PhonePatterntwo="^(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}$";
+  PhonePatterntwo="^\\+[0-9]{2}[0-9]{10}$";
   AddressPattern="^[a-zA-Z0-9!@#$&()\\-`.+,/\" ]*$";
   
   

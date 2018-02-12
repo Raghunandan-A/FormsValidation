@@ -1,5 +1,5 @@
-.centerAlignClass{
-    align-items: center;
+.centerAlignClass{  
+    align-content: center;
     margin-left: 15%;
 }
 .error {
@@ -8,4 +8,9 @@
 
 .form-actions {
     text-align: center;
+}
+
+.TableAlignClass{
+    margin-top: 5%;
+    align-content: center;
 }
