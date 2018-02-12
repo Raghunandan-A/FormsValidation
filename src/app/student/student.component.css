@@ -1,7 +1,12 @@
-.table{
+.page{
     border:2px solid #ccc;
     padding: 2em;
     background-color: rgb(225, 232, 238);
+}
+
+.table{
+   
     margin: auto;
-    width: 60%;
+    width: 80%;
+    color: rgb(41, 39, 39);
 }
