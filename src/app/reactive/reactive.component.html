@@ -6,7 +6,7 @@
         <label>Firstname :</label>
         <input type="text" formControlName="firstname" class="form-control" placeholder="Enter the FirstName">
 
-        <div *ngIf="myGroup.controls['firstname'].errors && myGroup.controls['firstname'].touched &&(myGroup.controls['firstname'].errors.required || myGroup.controls['firstname'].errors.minlength || myGroup.controls['firstname'].errors.maxlength)"
+        <div *ngIf="myGroup.controls['firstname'].errors && myGroup.controls['firstname'].touched &&(myGroup.controls['firstname'].errors.required || myGroup.controls['firstname'].errors.minlength || myGroup.controls['firstname'].errors.maxlength|| myGroup.controls['firstname'].errors.pattern)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['firstname'].errors.required">
             Firsntame is required
@@ -17,12 +17,15 @@
           <div *ngIf="myGroup.controls['firstname'].errors.maxlength">
             Firstname should not exceed 50 characters long
           </div>
+          <div *ngIf="myGroup.controls['firstname'].errors.pattern">
+            Should consists only Alphabets
+          </div>
         </div>
       </div>
       <div class="col-md-6">
         <label>Lastname :</label>
         <input type="text" formControlName="lastname" class="form-control" placeholder="Enter the LastName">
-        <div *ngIf="myGroup.controls['lastname'].errors && myGroup.controls['lastname'].touched &&(myGroup.controls['lastname'].errors.required || myGroup.controls['lastname'].errors.minlength || myGroup.controls['lastname'].errors.maxlength)"
+        <div *ngIf="myGroup.controls['lastname'].errors && myGroup.controls['lastname'].touched &&(myGroup.controls['lastname'].errors.required || myGroup.controls['lastname'].errors.minlength || myGroup.controls['lastname'].errors.maxlength|| myGroup.controls['lastname'].errors.pattern)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['lastname'].errors.required">
             Lastname is required
@@ -32,6 +35,9 @@
           </div>
           <div *ngIf="myGroup.controls['lastname'].errors.maxlength">
             Lastname should not exceed 50 characters long
+          </div>
+          <div *ngIf="myGroup.controls['lastname'].errors.pattern">
+            Should consists only Alphabets
           </div>
         </div>
       </div>
@@ -64,7 +70,7 @@
             Branch must be at least 5 characters
           </div>
           <div *ngIf="myGroup.controls['branch'].errors.pattern">
-             Branch consists pa
+             Should consists only Alphabets
             </div>
           <div *ngIf="myGroup.controls['branch'].errors.maxlength">
             Branch should not exceed 50 characters long
@@ -73,7 +79,7 @@
       </div>
       <div class="col-md-4">
         <label>D.O.B :</label>
-        <input type="text" formControlName="dateofbirth" class="form-control" placeholder="Date of Birth">
+        <input type="text" formControlName="dateofbirth" class="form-control" placeholder="Date of Birth DDMMYYYY">
         <div *ngIf="myGroup.controls['dateofbirth'].errors && myGroup.controls['dateofbirth'].touched &&(myGroup.controls['dateofbirth'].errors.required || myGroup.controls['dateofbirth'].errors.minlength || myGroup.controls['dateofbirth'].errors.maxlength)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['dateofbirth'].errors.required">
@@ -101,7 +107,7 @@
       <div class="col-md-6">
         <label>College :</label>
         <input type="text" formControlName="college" class="form-control" placeholder="Enter the college Name">
-        <div *ngIf="myGroup.controls['college'].errors && myGroup.controls['college'].touched &&(myGroup.controls['college'].errors.required || myGroup.controls['college'].errors.minlength || myGroup.controls['college'].errors.maxlength)"
+        <div *ngIf="myGroup.controls['college'].errors && myGroup.controls['college'].touched &&(myGroup.controls['college'].errors.required || myGroup.controls['college'].errors.minlength || myGroup.controls['college'].errors.maxlength || myGroup.controls['college'].errors.pattern)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['college'].errors.required">
             college is required.
@@ -111,6 +117,9 @@
           </div>
           <div *ngIf="myGroup.controls['college'].errors.maxlength">
             college should not exceed 50 characters long
+          </div>
+          <div *ngIf="myGroup.controls['college'].errors.pattern">
+            Only Alphabets are allowed
           </div>
         </div>
       </div>
@@ -133,7 +142,7 @@
       <div class="col-md-6">
         <label>Place :</label>
         <input type="text" formControlName="place" class="form-control" placeholder="Enter the Place">
-        <div *ngIf="myGroup.controls['place'].errors && myGroup.controls['place'].touched &&(myGroup.controls['place'].errors.required || myGroup.controls['place'].errors.minlength || myGroup.controls['place'].errors.maxlength)"
+        <div *ngIf="myGroup.controls['place'].errors && myGroup.controls['place'].touched &&(myGroup.controls['place'].errors.required || myGroup.controls['place'].errors.minlength || myGroup.controls['place'].errors.maxlength || myGroup.controls['place'].errors.pattern)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['place'].errors.required">
             Place is Required
@@ -144,14 +153,17 @@
           <div *ngIf="myGroup.controls['place'].errors.maxlength">
             Place should not exceed 50 characters long
           </div>
+          <div *ngIf="myGroup.controls['place'].errors.pattern">
+            Only Alphabets are allowed
+          </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <label>Phone No :</label>
-        <input type="text" formControlName="phoneno" class="form-control" >
-        <div *ngIf="myGroup.controls['phoneno'].errors && myGroup.controls['phoneno'].touched &&(myGroup.controls['phoneno'].errors.required || myGroup.controls['phoneno'].errors.minlength || myGroup.controls['phoneno'].errors.maxlength)"
+        <input type="text" formControlName="phoneno" class="form-control" placeholder="Enter the Phonenumber" >
+        <div *ngIf="myGroup.controls['phoneno'].errors && myGroup.controls['phoneno'].touched &&(myGroup.controls['phoneno'].errors.required || myGroup.controls['phoneno'].errors.minlength || myGroup.controls['phoneno'].errors.maxlength || myGroup.controls['phoneno'].errors.pattern)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['phoneno'].errors.required">
             Phonenumber is Required
@@ -161,6 +173,9 @@
           </div>
           <div *ngIf="myGroup.controls['phoneno'].errors.maxlength">
             Should me max 10 numbers
+          </div>
+          <div *ngIf="myGroup.controls['phoneno'].errors.pattern">
+            only numbers allowed
           </div>
         </div>
       </div>
@@ -186,7 +201,7 @@
     </div>
     <p></p>
     <div>
-      <button type="submit" class="btn btn-primary" >Submit</button>
+      <button type="submit" class="btn btn-primary"[disabled]=!myGroup.valid >Submit</button>
 
     </div>
   </form>
@@ -215,13 +230,13 @@
         <td>{{user.lastname}}</td>
         <td>{{user.rollno}}</td>
         <td>{{user.branch}}</td>
-        <td>{{user.dateofbirth}}</td>
+        <td>{{user.dateofbirth | date:"dd/MM/yyyy"}}</td>
         <td>{{user.email}}</td>
         <td>{{user.college}}</td>
         <td>{{user.yearofpassedout}}</td>
         <td>{{user.place}}</td>
-        <td>{{user.phoneno}}</td>
-        <td>{{user.phoneno2}}</td>
+        <td>{{user.phoneno | phone}}</td>
+        <td>{{user.phoneno2 | phone2}}</td>
 
       </tr>
     </tbody>
