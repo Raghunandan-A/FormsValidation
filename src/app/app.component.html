@@ -1,67 +1,89 @@
 <!--test code -->
 <div id="bg"></div>
 
-<div class="container">
-
+<div class="form-container">
     <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
-        <div class="form container">
-            <div class="row columns">
 
-                <h3>Reactive form</h3>
-                
-                <label>First Name
-                    <input type="text" formControlName="fname">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['fname'].valid && rForm.controls['fname'].touched">First name must present</div>
-                <label>Last Name
-                    <input type="text" formControlName="lname">
-                </label>
+        <h3>Reactive form </h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>First Name</label>
+                <input type="text" formControlName="fname">
+
+                <div class="alert" *ngIf="!rForm.controls['fname'].valid && rForm.controls['fname'].touched">First name must present
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Last Name</label>
+                <input type="text" formControlName="lname">
                 <div class="alert" *ngIf="!rForm.controls['lname'].valid && rForm.controls['lname'].touched">Last name must present</div>
-                <label> Branch
-                    <input type="text" formControlName="branch">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['branch'].valid && rForm.controls['branch'].touched">Branch name must present</div>
-
-                <label>Year of pass
-                    <input type="text" formControlName="yop">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['yop'].valid && rForm.controls['yop'].touched">A valid Year of pass must present ex 2016</div>
-
-                <label>Place
-                    <input type="text" formControlName="place">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['place'].valid && rForm.controls['place'].touched">Place must present</div>
-
-
-                <label>Mobile Number
-                    <input type="text" formControlName="mobilenum">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['mobilenum'].valid && rForm.controls['mobilenum'].touched">Mobile Number is 10 digit number</div>
-
-                <label>Registration Number
-                    <input type="text" formControlName="regnum">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['regnum'].valid && rForm.controls['regnum'].touched">Registration Number is 12 digit number</div>
-
-                <label>Date Of Birth
-                    <input type="date" formControlName="dob">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['dob'].valid && rForm.controls['dob'].touched">date of birth MM/DD/YYYY format</div>
-
-                <label>Email Id
-                    <input type="text" formControlName="emailid">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['emailid'].valid && rForm.controls['emailid'].touched">Valid Id Exaple raj123@xyz.com </div>
-
-                <label>Description
-                    <input type="text" formControlName="description">
-                </label>
-                <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">Description must be min 30 max 500</div>
-
-                <input type="submit" class="button expanded " value="Submit Form" [disabled]="!rForm.valid">
-
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label> Branch</label>
+                <input type="text" formControlName="branch">
+
+                <div class="alert" *ngIf="!rForm.controls['branch'].valid && rForm.controls['branch'].touched">Branch name must present</div>
+            </div>
+            <div class="col-md-6">
+                <label>Year of pass</label>
+                <input type="text" formControlName="yop">
+                <div class="alert" *ngIf="!rForm.controls['yop'].valid && rForm.controls['yop'].touched">Must be from 2015 to 2017 only</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Place</label>
+                <input type="text" formControlName="place">
+
+                <div class="alert" *ngIf="!rForm.controls['place'].valid && rForm.controls['place'].touched">Place must present</div>
+            </div>
+            <div class="col-md-6">
+                <label>Mobile Number</label>
+                <input type="text" formControlName="mobilenum">
+
+                <div class="alert" *ngIf="!rForm.controls['mobilenum'].valid && rForm.controls['mobilenum'].touched">Mobile Number is 10 digit number</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <label>Registration Number</label>
+                <input type="text" formControlName="regnum">
+
+                <div class="alert" *ngIf="!rForm.controls['regnum'].valid && rForm.controls['regnum'].touched">Registration Number is 12 digit number</div>
+            </div>
+            <div class="col-md-6">
+                <label>Date Of Birth</label>
+                <input type="date" formControlName="dob">
+
+                <div class="alert" *ngIf="!rForm.controls['dob'].valid && rForm.controls['dob'].touched">date of birth MM/DD/YYYY format</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <label>Email Id</label>
+                <input type="text" formControlName="emailid">
+
+                <div class="alert" *ngIf="!rForm.controls['emailid'].valid && rForm.controls['emailid'].touched">Valid Id Exaple raj123@xyz.com </div>
+            </div>
+            <div class="col-md-6">
+                <label>Feedback</label>
+                <input type="text" formControlName="description">
+
+                <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">Feedback must be min 4 max 30 length</div>
+            </div>
+        </div>
+
+        <input type="submit" class="button expanded " value="Submit Form" [disabled]="!rForm.valid">
+
     </form>
 </div>
 
@@ -72,26 +94,35 @@
     </head>
 
     <body>
-        <table border="2" width="100%" bordercolor="#fff" bgcolor="white">
-            <thead>
+        <table class="table table-striped"  border="2" width="100%" bordercolor="#fff" bgcolor="white">
+            <thead class="textformatforhead">
                 <tr>
-                    <td colspan="4">Name: {{fname}} {{lname}}</td>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">Branch</th>
+                    <th scope="col">YearofPass</th>
+                    <th scope="col">Place</th>
+                    <th scope="col">Mobile Num</th>
+                    <th scope="col">Reg Num</th>
+                    <th scope="col">DateofBirth</th>
+                    <th scope="col">Email Id</th>
+                    <th scope="col">Feedback</th>
+                   
                 </tr>
             </thead>
-            <tfoot>
+            <tbody class="textformatforbody">
                 <tr>
-                    <td colspan="4">Description: {{description}}</td>
-                </tr>
-            </tfoot>
-            <tbody>
-                <tr>
-                    <td>Branch {{branch}}</td>
-                    <td>Year of Pass{{yop}}</td>
-                    <td>Place {{place}}</td>
-                    <td>Registration Number {{regnum}}</td>
-                    <td>Date of Birth {{dob|date:'dd-MM-yyyy'}}</td>
-                    <td>Email Id {{emailid}}</td>
-                    <td>Mobile Num {{mobilenum}}</td>
+                    <td>{{fname}} </td>
+                    <td>{{lname}}</td>
+                    <td>{{branch}}</td>
+                    <td>{{yop}}</td>
+                    <td>{{place}}</td>
+                    <td>{{mobilenum}}</td>
+                    <td>{{regnum}}</td>
+                    <td>{{dob|date:'dd-MM-yyyy'}}</td>
+                    <td>{{emailid}}</td>
+                    <td>{{description}}</td>
+                   
                 </tr>
             </tbody>
         </table>
