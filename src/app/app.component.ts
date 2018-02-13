@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,Pipe } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PARAMETERS } from '@angular/core/src/util/decorators';
+import{HttpModule} from '@angular/http';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,50 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  rForm: FormGroup;
+  post: any;
+  fname: string = '';
+  lname: string ='';
+  branch: string ='';
+  yop: number;
+  place: string ='';
+  mobilenum: number;
+  dob: number;
+  regnum: number;
+  emailid: string ='';
+  description: string = '';
+  titleAlert: string = 'Please enter a valid name ex: Raj size 3-32 char';
+
+  constructor(private fb: FormBuilder) {
+    this.rForm = fb.group({
+      'fname': [null, Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z_ ]+$'), Validators.minLength(3), Validators.maxLength(32)])],
+      'lname': [null, Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z_ ]+$'), Validators.minLength(3), Validators.maxLength(32)])],
+      'place': [null, Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z]+$'), Validators.minLength(3), Validators.maxLength(32)])],
+      'branch': [null, Validators.compose([Validators.required,Validators.pattern('^[a-zA-Z]+$'), Validators.minLength(3), Validators.maxLength(32)])],
+      'mobilenum': [null, Validators.compose([Validators.required,Validators.pattern('^[789]+[0-9]{9}$'), Validators.minLength(10), Validators.maxLength(10)])],
+      'regnum': [null, Validators.compose([Validators.required,Validators.pattern('^[0-9]{12}$'), Validators.minLength(12), Validators.maxLength(12)])],
+      'dob': [null, Validators.required],
+      'yop': [null, Validators.compose([Validators.required,Validators.pattern('^[2]{1}[0]{1}[1]{1}[5-7]{1}$')])],
+      'emailid': [null,Validators.compose([Validators.required,Validators.pattern('^([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')])],
+      'description': [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])],
+      'validate': ''
+    });
+  }
+
+  addPost(post) {
+    this.fname = post.fname;
+    this.lname = post.lname;
+    this.branch = post.branch;
+    this.place=post.place;
+    this.yop=post.yop;
+    this.description = post.description;
+    this.mobilenum = post.mobilenum.replace(/(\d\d\d)(\d\d\d)(\d\d\d\d)/, '($1) $2-$3');
+    this.regnum = post.regnum.replace(/(\d\d\d\d)(\d\d)(\d\d\d\d\d\d)/, '$1-$2-$3');
+    this.emailid=post.emailid;
+    this.dob = post.dob;
+
+  }
+ 
 }
+
