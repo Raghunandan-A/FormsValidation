@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 import { telephonePipe } from './student/mobilepipe';
 import { telephone2Pipe } from './student/phonepipe';
+import { RepeaterComponent } from './repeater/repeater.component';
 
 
 
@@ -17,7 +18,8 @@ import { telephone2Pipe } from './student/phonepipe';
     AppComponent,
     StudentComponent,
     telephonePipe,
-    telephone2Pipe
+    telephone2Pipe,
+    RepeaterComponent
     
   ],
   imports: [
