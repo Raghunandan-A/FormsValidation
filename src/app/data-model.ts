@@ -1,27 +1,27 @@
-export class Hero {
+// export class Hero {
    
-    addresses: Address[];
-  }
+//     addresses: Address[];
+//   }
   
-  export class Address {
-    firstname = '';
-    lastname   = '';
-    address    = '';
-    college    = '';
-    rollnumb    = '';
-    branch    = '';
-    year    = '';
-    dob    = '';
-    email    = '';
-    mobile    = '';
-    phone    = '';
-}
+//   export class Address {
+//     firstname = '';
+//     lastname   = '';
+//     address    = '';
+//     college    = '';
+//     rollnumb    = '';
+//     branch    = '';
+//     year    = '';
+//     dob    = '';
+//     email    = '';
+//     mobile    = '';
+//     phone    = '';
+// }
 
-  export const heroes: Hero[] = [
+//   export const heroes: Hero[] = [
     
-{       
-     addresses: []
-},
-]
+// {       
+//      addresses: []
+// },
+// ]
 
    

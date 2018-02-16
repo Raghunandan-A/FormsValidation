@@ -1,206 +1,216 @@
 <div class="table">
-    <form [formGroup]="studentForm" (ngSubmit)="sumbitDetails()" novalidate>
-      <div formArrayName="students">
-        <div *ngFor="let details of students.controls; let i=index" [formGroupName]="i">
-      <div class="row">
-        <h5>{{i+1}}</h5>
-        <div class="form-group col-md-3">
-          <label for="exampleInputFirstname">First Name</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter FirstName" formControlName="firstname">
-          <div *ngIf="studentForm.controls['firstname'].errors && studentForm.controls['firstname'].touched &&(studentForm.controls['firstname'].errors.required || studentForm.controls['firstname'].errors.minlength || studentForm.controls['firstname'].errors.maxlength)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['firstname'].errors.required">
-              Name is required.
-            </div>
-            <div *ngIf="studentForm.controls['firstname'].errors.minlength">
-              Name must be at least 5 char
-            </div>
-            <div *ngIf="studentForm.controls['firstname'].errors.maxlength">
-              Name should not more than 50 characters long.
-            </div>
-          </div>
-        </div>
-        <div class="form-group col-md-3">
-          <label for="exampleInputLastname">Last Name</label>
-          <input type="text" class="form-control" placeholder="Enter your lastname" formControlName="lastname">
-          <div *ngIf="studentForm.controls['lastname'].errors && studentForm.controls['lastname'].touched &&(studentForm.controls['lastname'].errors.required || studentForm.controls['lastname'].errors.minlength || studentForm.controls['lastname'].errors.maxlength)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['lastname'].errors.required">
-              Name is required.
-            </div>
-            <div *ngIf="studentForm.controls['lastname'].errors.minlength">
-              Name must be at least 5 char
-            </div>
-            <div *ngIf="studentForm.controls['lastname'].errors.maxlength">
-              Name should not more than 50 characters long.
-            </div>
-          </div>
-        </div>
-        <div class="form-group col-md-3">
-          <label for="college">College</label>
-          <input type="text" class="form-control" id="exampleInputCollege" placeholder="Enter your college" formControlName="college">
-          <div *ngIf="studentForm.controls['college'].errors && studentForm.controls['college'].touched &&(studentForm.controls['college'].errors.required || studentForm.controls['college'].errors.minlength || studentForm.controls['college'].errors.maxlength)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['college'].errors.required">
-              College name required.
-            </div>
-            <div *ngIf="studentForm.controls['college'].errors.minlength">
-              College name must be at least 10 char
-            </div>
-            <div *ngIf="studentForm.controls['college'].errors.maxlength">
-              College name should not more than 50 char.
-            </div>
-          </div>
-        </div>
-        <div class="form-group col-md-3">
-          <label for="exampleInputAddress">Address</label>
-          <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter your address" formControlName="address">
-          <div *ngIf="studentForm.controls['address'].errors && studentForm.controls['address'].touched &&(studentForm.controls['address'].errors.required || studentForm.controls['address'].errors.minlength || studentForm.controls['address'].errors.maxlength)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['address'].errors.required">
-              Address required.
-            </div>
-            <div *ngIf="studentForm.controls['address'].errors.minlength">
-              Address must be at least 10 char
-            </div>
-            <div *ngIf="studentForm.controls['address'].errors.maxlength">
-              Address should not more than 70 characters long.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-md-3">
-          <label for="rollnumb">RollNo</label>
-          <input type="text" class="form-control" placeholder="Enter your roll number" id="rollNumber" formControlName="rollnumb">
-          <div *ngIf="studentForm.controls['rollnumb'].errors && studentForm.controls['rollnumb'].touched && (studentForm.controls['rollnumb'].errors.required||studentForm.controls['rollnumb'].errors.pattern)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['rollnumb'].errors.required">
-              This field is required.
-            </div>
-            <div *ngIf="studentForm.controls['rollnumb'].errors.pattern">
-              Roll Number must be match 12885A0431 pattern.
-            </div>
-          </div>
-        </div>
-        <div class="form-group col-md-3">
-          <label for="branch">Branch</label>
-          <select input type="text" class="form-control" name="branch" formControlName="branch">
-            <div *ngIf="studentForm.controls['branch'].errors && studentForm.controls['branch'].touched &&studentForm.controls['branch'].errors.required"
+  <form [formGroup]="studentForm" (ngSubmit)="submitDetails()" novalidate>
+    <div formArrayName="students">
+      <div *ngFor="let details of students.controls; let i=index" [formGroupName]="i">
+        <h5>Student {{i + 1}}</h5>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="exampleInputFirstname">First Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter FirstName" formControlName="firstname">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['firstname'].errors && studentForm.controls.students['controls'][i]['controls']['firstname'].touched"
               class="alert alert-danger">
-              <div *ngIf="studentForm.controls['branch'].errors.required">
-                This field is required.
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['firstname'].errors.required">
+                FirstName is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['firstname'].errors.minlength">
+                Name must be at least 5 char
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['firstname'].errors.maxlength">
+                Name should not more than 50 characters long.
               </div>
             </div>
-            <option value="EEE">IT</option>
-            <option value="CSE">CSE</option>
-            <option value="ECE">ECE</option>
-            <option value="EEE">EEE</option>
-            <option value="EEE">Mech</option>
-            <option value="ECE">CIVIL</option>
-          </select>
-        </div>
-        <div class="form-group col-md-3">
-          <label for="year">Year</label>
-          <input type="text" formControlName="year" class="form-control" placeholder="Enter the passed out year" formControlName="year">
-          <div *ngIf="studentForm.controls['year'].errors && studentForm.controls['year'].touched &&(studentForm.controls['year'].errors.required||studentForm.controls['year'].errors.pattern)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['year'].errors.required">
-              This field is required.
+          </div>
+          <div class="form-group col-md-3">
+            <label for="exampleInputLastname">Last Name</label>
+            <input type="text" class="form-control" placeholder="Enter your lastname" formControlName="lastname">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['lastname'].errors && studentForm.controls.students['controls'][i]['controls']['lastname'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['lastname'].errors.required">
+                LastName is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['lastname'].errors.minlength">
+                Name must be at least 5 char
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['lastname'].errors.maxlength">
+                Name should not more than 50 characters long.
+              </div>
             </div>
-            <div *ngIf="studentForm.controls['year'].errors.pattern">
-              must be between 2014-2018.
+          </div>
+          <div class="form-group col-md-3">
+            <label for="college">College</label>
+            <input type="text" class="form-control" id="exampleInputCollege" placeholder="Enter your college" formControlName="college">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['college'].errors && studentForm.controls.students['controls'][i]['controls']['college'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['college'].errors.required">
+                College Name is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['college'].errors.minlength">
+                Name must be at least 5 char
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['college'].errors.maxlength">
+                Name should not more than 50 characters long.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="exampleInputAddress">Address</label>
+            <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter your address" formControlName="address">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['address'].errors && studentForm.controls.students['controls'][i]['controls']['address'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['address'].errors.required">
+                Address is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['address'].errors.minlength">
+                must be at least 5 char
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['address'].errors.maxlength">
+                should not more than 50 characters long.
+              </div>
             </div>
           </div>
         </div>
-        <div class="form-group col-md-3">
-          <label for="dob">DOB</label>
-          <input type="text" class="form-control" id="dob" formControlName="dob">
-          <div *ngIf="studentForm.controls['dob'].errors && studentForm.controls['dob'].touched&&studentForm.controls['dob'].errors.required" class="alert alert-danger">
-            <div *ngIf="studentForm.controls['dob'].errors.required">
-              Date of birth required.
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="rollnumb">RollNo</label>
+            <input type="text" class="form-control" placeholder="Enter your roll number" id="rollNumber" formControlName="rollnumb">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['rollnumb'].errors && studentForm.controls.students['controls'][i]['controls']['rollnumb'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['rollnumb'].errors.required">
+                rollnumb is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['rollnumb'].errors.pattern">
+                must match 12885A0431 pattern.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="branch">Branch</label>
+            <select input type="text" class="form-control" name="branch" formControlName="branch">
+
+              <option value="EEE">IT</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+              <option value="EEE">Mech</option>
+              <option value="ECE">CIVIL</option>
+            </select>
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['branch'].errors && studentForm.controls.students['controls'][i]['controls']['branch'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['branch'].errors.required">
+                branch is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="year">Year</label>
+            <input type="text" class="form-control" placeholder="Enter the passed out year" formControlName="year">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['year'].errors && studentForm.controls.students['controls'][i]['controls']['year'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['year'].errors.required">
+                year is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['year'].errors.pattern">
+                must be between 2014-2018.
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="dob">DOB</label>
+            <input type="text" class="form-control" id="dob" formControlName="dob" placeholder="DDMMYYYY">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['dob'].errors && studentForm.controls.students['controls'][i]['controls']['dob'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['dob'].errors.required">
+                dob is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['dob'].errors.pattern">
+                it should be DDMMYYYY.
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="email">Email</label>
+            <input type="Email" class="form-control" placeholder="Enter your Email address" formControlName="email">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['email'].errors && studentForm.controls.students['controls'][i]['controls']['email'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['email'].errors.required">
+                email is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['email'].errors.pattern">
+                It should be aaaaaaaa@aaa.com
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-3">
+            <label for="mobile">Mobile No</label>
+            <input type="text" class="form-control " placeholder="enter your mobile number" formControlName="mobile">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['mobile'].errors && studentForm.controls.students['controls'][i]['controls']['mobile'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['mobile'].errors.required">
+                mobile is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['mobile'].errors.pattern">
+                Number should be 10 digits
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-3">
+            <label for="phone">phone No</label>
+            <input type="text" class="form-control " placeholder="enter your phone number" formControlName="phone">
+            <div *ngIf="studentForm.controls.students['controls'][i]['controls']['phone'].errors && studentForm.controls.students['controls'][i]['controls']['phone'].touched"
+              class="alert alert-danger">
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['phone'].errors.required">
+                phone is required.
+              </div>
+              <div *ngIf="studentForm.controls.students['controls'][i]['controls']['phone'].errors.pattern">
+                Number should be 10 digits
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
       </div>
-      <div class="row">
-        <div class="form-group col-6">
-          <label for="email">Email</label>
-          <input type="Email" formControlName="email" class="form-control" placeholder="Enter your Email address" formControlName="email">
-          <div *ngIf="studentForm.controls['email'].errors && studentForm.controls['email'].touched&&(studentForm.controls['email'].errors.required||studentForm.controls['email'].errors.pattern)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['email'].errors.required">
-              This field is required.
-            </div>
-            <div *ngIf="studentForm.controls['email'].errors.pattern">
-              Email must be aaaaaaa@aaa.com
-            </div>
-          </div>
-        </div>
-        <div class="form-group col-3">
-          <label for="mobile">Mobile No</label>
-          <input type="text" formControlName="mobile" class="form-control " placeholder="enter your mobile number" formControlName="mobile">
-          <div *ngIf="studentForm.controls['mobile'].errors && studentForm.controls['mobile'].touched && (studentForm.controls['mobile'].errors.required||studentForm.controls['mobile'].errors.pattern)"
-            class="alert alert-danger">
-            <div *ngIf="studentForm.controls['mobile'].errors.required">
-              This field is required.
-            </div>
-            <div *ngIf="studentForm.controls['mobile'].errors.pattern">
-              Number must be 10 digits.
-            </div>
-          </div>
-        </div>
-        <div class="form-group col-3">
-          <label for="Phone">Phone No</label>
-          <input type="text" formControlName="phone" class="form-control " placeholder="enter alternate number" formControlName="phone">
-          <div *ngIf="studentForm.controls['phone'].errors && studentForm.controls['phone'].touched" class="alert alert-danger">
-            <div *ngIf="studentForm.controls['phone'].errors.required">
-              This field is required.
-            </div>
-          </div>
-        </div>
-      </div>
-     <hr>     
-      </div>
-      </div>
-      <div>
-          <button type="button" class="btn btn-primary" (click)="AddNew()" >Add</button>
-          <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid">Submit</button>
-        </div>
-    </form>
-  </div>
-  
-  <div class="table_block">
-    <table class="table table-condensed table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">College</th>
-          <th scope="col">Address</th>
-          <th scope="col">Roll Number</th>
-          <th scope="col">Branch</th>
-          <th scope="col">Year</th>
-          <th scope="col">DOB</th>
-          <th scope="col">Email</th>
-          <th scope="col">Mobile No</th>
-          <th scope="col">Phone No</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let list of lists">
-          <td>{{list.firstname}}</td>
-          <td>{{list.lastname}}</td>
-          <td>{{list.college}}</td>
-          <td>{{list.address}}</td>
-          <td>{{list.branch}}</td>
-          <td>{{list.rollnumb}}</td>
-          <td>{{list.year}}</td>
-          <td>{{list.dob}}</td>
-          <td>{{list.email}}</td>
-          <td>{{list.mobile}}</td>
-          <td>{{list.phone}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="AddNew()">Add</button>
+      <button type="submit" class="btn btn-success" >Submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="table_block">
+  <table class="table table-condensed table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">College</th>
+        <th scope="col">Address</th>
+        <th scope="col">Roll Number</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Year</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile No</th>
+        <th scope="col">Phone No</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of lists">
+        <td>{{list.firstname}}</td>
+        <td>{{list.lastname}}</td>
+        <td>{{list.college}}</td>
+        <td>{{list.address}}</td>
+        <td>{{list.branch}}</td>
+        <td>{{list.rollnumb}}</td>
+        <td>{{list.year}}</td>
+        <td>{{list.dob}}</td>
+        <td>{{list.email}}</td>
+        <td>{{list.mobile}}</td>
+        <td>{{list.phone}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
