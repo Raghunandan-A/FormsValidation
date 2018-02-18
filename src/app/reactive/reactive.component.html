@@ -9,7 +9,7 @@
         <div *ngIf="myGroup.controls['firstname'].errors && myGroup.controls['firstname'].touched &&(myGroup.controls['firstname'].errors.required || myGroup.controls['firstname'].errors.minlength || myGroup.controls['firstname'].errors.maxlength|| myGroup.controls['firstname'].errors.pattern)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['firstname'].errors.required">
-            Firsntame is required
+            Firstname is required
           </div>
           <div *ngIf="myGroup.controls['firstname'].errors.minlength">
             Firstname must be at least 5 characters
@@ -70,8 +70,8 @@
             Branch must be at least 5 characters
           </div>
           <div *ngIf="myGroup.controls['branch'].errors.pattern">
-             Should consists only Alphabets
-            </div>
+            Should consists only Alphabets
+          </div>
           <div *ngIf="myGroup.controls['branch'].errors.maxlength">
             Branch should not exceed 50 characters long
           </div>
@@ -85,7 +85,7 @@
           <div *ngIf="myGroup.controls['dateofbirth'].errors.required">
             Dateofbirth is Required
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@
     <div class="row">
       <div class="col-md-6">
         <label>Phone No :</label>
-        <input type="text" formControlName="phoneno" class="form-control" placeholder="Enter the Phonenumber" >
+        <input type="text" formControlName="phoneno" class="form-control" placeholder="Enter the Phonenumber">
         <div *ngIf="myGroup.controls['phoneno'].errors && myGroup.controls['phoneno'].touched &&(myGroup.controls['phoneno'].errors.required || myGroup.controls['phoneno'].errors.minlength || myGroup.controls['phoneno'].errors.maxlength || myGroup.controls['phoneno'].errors.pattern)"
           class="alert alert-danger">
           <div *ngIf="myGroup.controls['phoneno'].errors.required">
@@ -201,11 +201,11 @@
     </div>
     <p></p>
     <div>
-      <button type="submit" class="btn btn-primary"[disabled]=!myGroup.valid >Submit</button>
-
+      <button type="submit" class="btn btn-primary" >Submit</button>
     </div>
   </form>
 </div>
+
 <p></p>
 <div class="sty">
   <table class="table table-striped">

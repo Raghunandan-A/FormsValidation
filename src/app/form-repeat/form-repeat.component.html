@@ -1,0 +1,273 @@
+<div class="container reg">
+<form [formGroup]="StudentForm" (ngSubmit)="onSubmit()" novalidate>
+     
+      <!-- <button type="reset" (click)="revert()"
+              [disabled]="StudentForm.pristine" class="btn btn-danger">Revert</button> -->
+    
+  
+    <div formArrayName="studentlist" class="well well-lg">
+      <div *ngFor="let address of studentlist.controls; let i=index" [formGroupName]="i">
+          <h4>Form {{i + 1}}</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label >Firstname:</label>
+                <input class="form-control" formControlName="firstname">
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['firstname'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['firstname'].touched"
+                class="alert alert-danger">
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['firstname'].errors.required">
+                  Firstname is required
+                </div>
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['firstname'].errors.minlength">
+                  Firstname must be at least 5 characters
+                </div>
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['firstname'].errors.maxlength">
+                  Firstname should not exceed 50 characters long
+                </div>
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['firstname'].errors.pattern">
+                  Should consists only Alphabets
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label >lastname:</label>
+                <input class="form-control" formControlName="lastname">
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].touched"
+                class="alert alert-danger">
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].errors.required">
+                  Lastname is required
+                </div>
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].errors.minlength">
+                  Lastname must be at least 5 characters
+                </div>
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].errors.maxlength">
+                  Lastname should not exceed 50 characters long
+                </div>
+                <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].errors.pattern">
+                  Should consists only Alphabets
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+        <div class="form-group">
+          <label >Rollno:</label>
+            <input class="form-control" formControlName="rollno">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['rollno'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['rollno'].touched"
+                class="alert alert-danger">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['rollno'].errors.required">
+              Rollno is Required
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['rollno'].errors.pattern">
+              Rollno should be in 12345A6789 format
+            </div>
+          </div>
+  
+  
+          </div>
+        </div>
+        <div class="col-md-4">
+        <div class="form-group">
+          <label >Branch:</label>
+            <input class="form-control" formControlName="branch">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['branch'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['branch'].touched"
+            class="alert alert-danger">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['branch'].errors.required">
+              Branch is required
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['branch'].errors.minlength">
+              Branch must be at least 5 characters
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['branch'].errors.pattern">
+              Should consists only Alphabets
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['branch'].errors.maxlength">
+              Branch should not exceed 50 characters long
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+        <div class="form-group">
+          <label >Date Of Birth:</label>
+            <input class="form-control" formControlName="dateofbirth">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['dateofbirth'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['dateofbirth'].touched"
+            class="alert alert-danger">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['dateofbirth'].errors.required">
+              Dateofbirth is Required
+            </div>
+  
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+        <div class="form-group">
+          <label >Email:</label>
+            <input class="form-control" formControlName="email">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['email'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['email'].touched"
+            class="alert alert-danger">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['email'].errors.required">
+              Email is Required
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['email'].errors.pattern">
+              should match the pattern xxxxx@xx.xx
+            </div>
+          </div>
+        </div>
+          </div>
+          <div class="col-md-6">
+        <div class="form-group">
+          <label >College:</label>
+            <input class="form-control" formControlName="college">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['college'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['college'].touched"
+            class="alert alert-danger">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['college'].errors.required">
+              college is required.
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['college'].errors.minlength">
+              college must be at least 5 characters
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['college'].errors.maxlength">
+              college should not exceed 50 characters long
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['college'].errors.pattern">
+              Only Alphabets are allowed
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+        <div class="form-group">
+          <label >Year of passedout:</label>
+            <input class="form-control" formControlName="yearofpassedout">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['yearofpassedout'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['yearofpassedout'].touched"
+            class="alert alert-danger">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['yearofpassedout'].errors.required">
+              Year of Passedout is Required
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['yearofpassedout'].errors.pattern">
+              2015-2017 is allowed
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+        <div class="form-group">
+          <label >Place:</label>
+            <input class="form-control" formControlName="place">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['place'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['place'].touched"
+            class="alert alert-danger">
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['place'].errors.required">
+              Place is Required
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['place'].errors.minlength">
+              Place must be at least 5 characters
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['place'].errors.maxlength">
+              Place should not exceed 50 characters long
+            </div>
+            <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['place'].errors.pattern">
+              Only Alphabets are allowed
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+     
+ <div class="row">
+  <div class="col-md-6">
+  <div class="form-group">
+    <label>Phoneno: </label>
+      <input class="form-control" formControlName="phoneno">
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['phoneno'].touched"
+      class="alert alert-danger">
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno'].errors.required">
+        Phonenumber is Required
+      </div>
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno'].errors.minlength">
+        Should me min 10 numbers
+      </div>
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno'].errors.maxlength">
+        Should me max 10 numbers
+      </div>
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno'].errors.pattern">
+        only numbers allowed
+      </div>
+  </div>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="form-group">
+    <label>Phoneno:</label>
+      <input class="form-control" formControlName="phoneno2">
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno2'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['phoneno2'].touched"
+      class="alert alert-danger">
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno2'].errors.required">
+        Phonenumber is Required
+      </div>
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno2'].errors.minlength">
+        Should me min 10 numbers
+      </div>
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno2'].errors.maxlength">
+        Should me max 10 numbers
+      </div>
+      <div *ngIf="StudentForm.controls.studentlist['controls'][i]['controls']['phoneno2'].errors.pattern">
+        only numbers allowed
+      </div>
+    </div>
+    
+  </div>
+  </div>
+  </div>
+        <br>
+        <!-- End of the repeated address template -->
+      </div>
+      <button type="submit"  class="btn btn-success" >Submit</button>
+      <button (click)="addrow()"  class="btn btn-success" type="button">AddRow</button>
+    </div>
+  </form>
+</div>
+  <p></p>
+  <div class="sty">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">F.Name</th>
+          <th scope="col">L.Name</th>
+          <th scope="col">RollNo</th>
+          <th scope="col">Branch</th>
+          <th scope="col">D.O.B</th>
+          <th scope="col">Email</th>
+          <th scope="col">college</th>
+          <th scope="col">Y.O.P.O</th>
+          <th scope="col">Place</th>
+          <th scope="col">Ph.No</th>
+          <th scope="col">Ph.No</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of list">
+          <td>{{user.firstname}}</td>
+          <td>{{user.lastname}}</td>
+          <td>{{user.rollno}}</td>
+          <td>{{user.branch}}</td>
+          <td>{{user.dateofbirth | date:"dd/MM/yyyy"}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.college}}</td>
+          <td>{{user.yearofpassedout}}</td>
+          <td>{{user.place}}</td>
+          <td>{{user.phoneno | phone}}</td>
+          <td>{{user.phoneno2 | phone2}}</td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>

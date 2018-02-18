@@ -1,9 +1,8 @@
 
-import { Component,Pipe,Injectable } from '@angular/core';
-import {FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import{user} from '../reactive';
-import { Input } from '@angular/core/src/metadata/directives';
 
 
 @Component({
@@ -11,6 +10,7 @@ import { Input } from '@angular/core/src/metadata/directives';
   templateUrl: './reactive.component.html',
   styleUrls: ['./reactive.component.css']
 })
+
 
 export class ReactiveComponent {
 
@@ -20,14 +20,9 @@ list : user[] = [];
  
   constructor(private fb: FormBuilder) {
 
- this.createform();
   }
 
-  getDOB(){
-    console.log(this.myGroup.value.dateofbirth.substr(4, 4), this.myGroup.value.dateofbirth.substr(2, 2) - 1, this.myGroup.value.dateofbirth.substr(0, 2));
-  }
-
-  createform() {
+  ngOnInit() {
     //var dateofbirth = new (dateofbirth)
       this.myGroup = this.fb.group({
        firstname: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('^[a-zA-Z_ ]+$')]],
@@ -54,5 +49,6 @@ list : user[] = [];
         console.log(this.myGroup.value.dateofbirth); 
         this.myGroup.reset(); 
       }
+ 
     }
    
