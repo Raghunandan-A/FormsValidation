@@ -1,0 +1,17 @@
+
+.container-fluid{ 
+    /* The image used */
+    background-image: url("https://i.pinimg.com/originals/46/74/5c/46745c35111306b4b853195359b1b649.jpg");
+    height: 750px;
+    
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+
+}
