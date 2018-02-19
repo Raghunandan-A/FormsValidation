@@ -36,7 +36,5 @@ ngOnInit(){
     console.log(this.registerForm.controls['name']);
   }
 
- // check() : void{
-   // console.log(this.registerForm.get('email'));
-  //}
+ 
 }
