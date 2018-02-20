@@ -1,4 +1,4 @@
-<div class="table">
+<div class="example container">
   <form [formGroup]="studentForm" (ngSubmit)="submitDetails()" novalidate>
     <div formArrayName="students">
       <div *ngFor="let details of students.controls; let i=index" [formGroupName]="i">
@@ -45,7 +45,7 @@
                 College Name is required.
               </div>
               <div *ngIf="studentForm.controls.students['controls'][i]['controls']['college'].errors.minlength">
-                Name must be at least 5 char
+                Name must be at least 8 char
               </div>
               <div *ngIf="studentForm.controls.students['controls'][i]['controls']['college'].errors.maxlength">
                 Name should not more than 50 characters long.
@@ -61,7 +61,7 @@
                 Address is required.
               </div>
               <div *ngIf="studentForm.controls.students['controls'][i]['controls']['address'].errors.minlength">
-                must be at least 5 char
+                must be at least 8 char
               </div>
               <div *ngIf="studentForm.controls.students['controls'][i]['controls']['address'].errors.maxlength">
                 should not more than 50 characters long.
@@ -123,7 +123,7 @@
                 dob is required.
               </div>
               <div *ngIf="studentForm.controls.students['controls'][i]['controls']['dob'].errors.pattern">
-                it should be DDMMYYYY.
+                it should be DDMMYYYY
               </div>
             </div>
           </div>
@@ -175,12 +175,13 @@
     </div>
     <div>
       <button type="button" class="btn btn-primary" (click)="AddNew()">Add</button>
-      <button type="submit" class="btn btn-success" >Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid||!studentForm.value.students[1]">Submit</button>
     </div>
   </form>
 </div>
 
-<div class="table_block">
+<hr>
+<div class="block">
   <table class="table table-condensed table-bordered">
     <thead>
       <tr>
@@ -206,10 +207,10 @@
         <td>{{list.branch}}</td>
         <td>{{list.rollnumb}}</td>
         <td>{{list.year}}</td>
-        <td>{{list.dob}}</td>
+        <td>{{list.dob | date}}</td>
         <td>{{list.email}}</td>
-        <td>{{list.mobile}}</td>
-        <td>{{list.phone}}</td>
+        <td>{{list.mobile | telephone}}</td>
+        <td>{{list.phone | telephone}}</td>
       </tr>
     </tbody>
   </table>

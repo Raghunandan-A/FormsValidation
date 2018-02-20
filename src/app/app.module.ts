@@ -6,8 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
-import { telephonePipe } from './student/mobilepipe';
-import { telephone2Pipe } from './student/phonepipe';
+import { telephonePipe } from './mobilepipe';
+
 import { RepeaterComponent } from './repeater/repeater.component';
 
 
@@ -18,7 +18,6 @@ import { RepeaterComponent } from './repeater/repeater.component';
     AppComponent,
     StudentComponent,
     telephonePipe,
-    telephone2Pipe,
     RepeaterComponent
     
   ],

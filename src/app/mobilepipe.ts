@@ -10,6 +10,7 @@ export class telephonePipe  {
         if (!value) {
           return value;
         }
-        return value.replace(/(\d\d\d)(\d\d\d)(\d\d\d\d)/, '+91 ($1) $2-$3');
+        return value.replace(/(\d\d\d)(\d\d\d)(\d\d\d\d)/, '($1) $2-$3');
       }
+      
 }
