@@ -3,6 +3,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { PatternValidator } from '@angular/forms';
 import { EMAIL_VALIDATOR } from '@angular/forms/src/directives/validators';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 @Component({
   selector: 'app-root',
@@ -36,7 +37,7 @@ export class AppComponent {
         'branch':new FormControl("",[Validators.required]),
         'dob':new FormControl("",[Validators.pattern("[0-9]{2}/[0-9]{2}/[0-9]{4}")]),
         'yop':new FormControl("",[Validators.min(2014),Validators.max(2018),Validators.minLength(4),Validators.maxLength(4)]),
-        'mail': new FormControl("",[Validators.required,Validators.pattern("[0-9|a-z|A-Z|.]{10}@[A-Z|a-z]{5}.[a-z|A-Z]{3}")]),
+        'mail': new FormControl("",[Validators.required,Validators.pattern("[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}")]),
         'phone':new FormControl("",[Validators.required,Validators.minLength(16),Validators.maxLength(16),Validators.pattern("[+|0-9]{3}[(][0-9]{3}[)][0-9]{3}[-][0-9]{4}")])
       })  
 }
@@ -87,6 +88,11 @@ export class AppComponent {
     this.contact.push(a);
     }
 
+  }
+
+  AddForm()
+  {
+    
   }
 
 }
