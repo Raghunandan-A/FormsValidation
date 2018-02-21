@@ -3,60 +3,128 @@
   <h1 class="well">Registration Form</h1>
 <div class="col-lg-12 well">
 <div class="row">
-      <form>
+  <form>
         <div class="col-sm-12">
-          <div class="row">
+          <div class="col">
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
               <label>First Name</label>
-              <input type="text" placeholder="Enter First Name" class="form-control" pattern=".{5,50}" required [value]="firstname" (input)="firstname = $event.target.value">
+              <input type="text" name="firstname" id="firstname" formControlName="firstname" placeholder="Enter First Name" class="form-control"  [value]="firstname" (input)="firstname = $event.target.value">
+              <div *ngIf="complexForm.controls['firstname'].errors">
+                <div *ngIf="complexForm.controls['firstname'].errors.required">FirstName required</div>
+                <div *ngIf="complexForm.controls['firstname'].errors.minlength">FirstName minimum length is 5 digits</div>
+                <div *ngIf="complexForm.controls['firstname'].errors.maxlength">FirstName maximum length is 50 digits</div>
             </div>
+          </form>
+        </div>
+      </div>
+      <div class="col">
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
               <label>Last Name</label>
-              <input type="text" placeholder="Enter Last Name" class="form-control" pattern=".{5,50}" required [value]="lastname" (input)="lastname = $event.target.value">
+              <input type="text" name="lastname" id="lastname" formControlName="lastname" placeholder="Enter Last Name" class="form-control"  [value]="lastname" (input)="lastname = $event.target.value">
+              <div *ngIf="complexForm.controls['lastname'].errors">
+                  <div *ngIf="complexForm.controls['lastname'].errors.required">LastName required</div>
+                  <div *ngIf="complexForm.controls['lastname'].errors.minlength">LastName minimum length is 5 digits</div>
+                  <div *ngIf="complexForm.controls['lastname'].errors.maxlength">LastName maximum length is 50 digits</div>
+              </div>
+                </form>
             </div>
+          </div>
           </div>
           
           <div class="row">
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
               <label>Roll Number (Eg. 11111A1111)</label>
-              <input type="text" placeholder="5 digits + 1 character + 4 digits" class="form-control" pattern="[0-9]{5}[a-z|A-Z]{1}[0-9]{4}" [value]="rollno" (input)="rollno = $event.target.value">
+              <input type="text" name="rollno" id="rollno" formControlName="rollno" placeholder="5 digits + 1 character + 4 digits" class="form-control"  [value]="rollno" (input)="rollno = $event.target.value">
+              <div *ngIf="complexForm.controls['rollno'].errors">
+                  <div *ngIf="complexForm.controls['rollno'].errors.pattern">Pattern should be (5 digits + 1 character + 4 digits)</div>
+              </div>
+              </form>
             </div>
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
               <label>Branch</label>
-              <input type="text" placeholder="Enter Branch Name" class="form-control" [value]="branch" (input)="branch = $event.target.value">
+              <input type="text" name="branch" id="branch" formControlName="branch" placeholder="Enter Branch Name" class="form-control" [value]="branch" (input)="branch = $event.target.value">
+              <div *ngIf="complexForm.controls['branch'].errors">
+                  <div *ngIf="complexForm.controls['branch'].errors.required">BranchName required</div>
+              </div>
+                </form>
             </div>
           </div>
 
           <div class="row">
               <div class="col-sm-6 form-group">
+                  <form [formGroup]="complexForm">
                   <label>Date Of Birth</label>
-                  <input type="text" placeholder="Enter Date Of Birth" class="form-control" [value]="dob" (input)="dob = $event.target.value">
+                  <input type="text" name="dob" id="dob" formControlName="dob"  placeholder="Enter Date Of Birth (Eg. 02/10/1999)" class="form-control" [value]="dob" (input)="dob = $event.target.value">
+                  <div *ngIf="complexForm.controls['dob'].errors">
+                      <div *ngIf="complexForm.controls['dob'].errors.pattern">Date of birth pattern (dd/mm/yyyy) required</div>
+                  </div>
+                  </form>
                 </div>	
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
               <label>Year Of Pass</label>
-              <input type="number" placeholder="Enter Year Of Pass" class="form-control" min="2014" max="2018" [value]="yop" (input)="yop = $event.target.value">
+              <input type="number" name="yop" id="yop" formControlName="yop" placeholder="Enter Year Of Pass" class="form-control" min="2014" max="2018"   [value]="yop" (input)="yop = $event.target.value">
+              <div *ngIf="complexForm.controls['yop'].errors">
+                  <div *ngIf="complexForm.controls['yop'].errors.min">Year of pass should be greater than or equal to 2014</div>
+                  <div *ngIf="complexForm.controls['yop'].errors.max">Year of pass should be greater than or equal to 2018</div>
+                  <div *ngIf="complexForm.controls['yop'].errors.minlength">Year of pass minimum length is 4</div>
+                  <div *ngIf="complexForm.controls['yop'].errors.maxlength">Year of pass maximum length is 4</div>
+              </div>
+                </form>
             </div>			
           </div>
 
           <div class="row">
               <div class="col-sm-6 form-group">
+                  <form [formGroup]="complexForm">
                   <label>Place</label>
-                  <input type="text" placeholder="Enter Place Name" class="form-control" pattern=".{5,50}" required [value]="place" (input)="place = $event.target.value">
+                  <input type="text" name="place" id="place" formControlName="place" placeholder="Enter Place Name" class="form-control"  [value]="place" (input)="place = $event.target.value">
+                  <div *ngIf="complexForm.controls['place'].errors">
+                      <div *ngIf="complexForm.controls['place'].errors.required">Place required</div>
+                      <div *ngIf="complexForm.controls['place'].errors.minlength">Place minimum length is 5 digits</div>
+                      <div *ngIf="complexForm.controls['place'].errors.maxlength">Place maximum length is 50 digits</div>
+                  </div>
+                  </form>
                 </div>	
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
               <label>College</label>
-              <input type="text" placeholder="Enter College Name" class="form-control" pattern=".{5,50}" required [value]="college" (input)="college = $event.target.value">
+              <input type="text" name="college" id="college" formControlName="college" placeholder="Enter College Name" class="form-control"  [value]="college" (input)="college = $event.target.value">
+              <div *ngIf="complexForm.controls['college'].errors">
+                  <div *ngIf="complexForm.controls['college'].errors.required">CollegeName required</div>
+                  <div *ngIf="complexForm.controls['college'].errors.minlength">CollegeName minimum length is 5 digits</div>
+                  <div *ngIf="complexForm.controls['college'].errors.maxlength">CollegeName maximum length is 50 digits</div>
+              </div>
+                </form>
             </div>			
           </div>
 
           <div class="row">	
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
               <label>Email Address</label>
-              <input type="email" placeholder="Enter Email Address" class="form-control" [value]="mail" (input)="mail = $event.target.value">
+              <input type="email" name="mail" id="mail" formControlName="mail" placeholder="Enter Email Address" class="form-control" [value]="mail" (input)="mail = $event.target.value">
+              <div *ngIf="complexForm.controls['mail'].errors">
+                  <div *ngIf="complexForm.controls['mail'].errors.required">MailId required</div>
+                  <div *ngIf="complexForm.controls['mail'].errors.pattern">MailId pattern incorrect</div>
+              </div>
+                </form>
             </div>
             <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
                 <label>Phone Number (Eg. +91(999)999-9999 )</label>
-                <input type="text" placeholder="3 digit prefix (3 digits) 3digits - 4digits" class="form-control" pattern="[+|0-9]{3}[(][0-9]{3}[)][0-9]{3}[-][0-9]{4}" maxlength="16" minlength="16" [value]="phone" (input)="phone = $event.target.value">
+                <input type="text" name="phone" id="phone" formControlName="phone" placeholder="3 digit prefix (3 digits) 3digits - 4digits" class="form-control" [value]="phone" (input)="phone = $event.target.value">
+                <div *ngIf="complexForm.controls['phone'].errors">
+                    <div *ngIf="complexForm.controls['phone'].errors.required">Phone No required</div>
+                    <div *ngIf="complexForm.controls['phone'].errors.pattern">Phone No pattern incorrect</div>
+                    <div *ngIf="complexForm.controls['phone'].errors.minlength">Phone No minimum length is 16</div>
+                    <div *ngIf="complexForm.controls['phone'].errors.maxlength">Phone No maximum length is 16</div>
+                </div>
+                </form>
               </div>				
           </div>
 
@@ -98,7 +166,7 @@
 
 
         
-        </div>
+        <!-- </div> -->
       </form> 
       </div>
 </div>
