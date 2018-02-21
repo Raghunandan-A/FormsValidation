@@ -22,7 +22,8 @@ import { RepeaterComponent } from './repeater/repeater.component';
     
   ],
   imports: [
-    BrowserModule,ReactiveFormsModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
