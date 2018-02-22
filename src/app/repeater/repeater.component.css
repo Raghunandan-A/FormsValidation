@@ -1,0 +1,12 @@
+.example{
+    border:2px solid #ccc;
+    padding: 2em;
+    background-color: #e1e8ee;
+    
+}
+
+.block{
+    margin: auto;
+    width: 90%;
+    background-color: #ebebe9;
+}

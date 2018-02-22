@@ -1,0 +1,203 @@
+<div class="example container">
+  <form [formGroup]="studentForm" (ngSubmit)="submitDetails()" novalidate>
+    <div formArrayName="students">
+      <div *ngFor="let details of students.controls; let i=index" [formGroupName]="i">
+        <h5>Student {{i + 1}}</h5>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="exampleInputFirstname">First Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter FirstName" formControlName="firstname">
+            <div *ngIf="toggleValidMessages(i,'firstname','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'firstname','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'firstname','minlength')">
+                {{validationMessages['minLength']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'firstname','maxlength')">
+                {{validationMessages['maxLength']}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="exampleInputLastname">Last Name</label>
+            <input type="text" class="form-control" placeholder="Enter your lastname" formControlName="lastname">
+            <div *ngIf="toggleValidMessages(i,'lastname','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'lastname','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'lastname','minlength')">
+                {{validationMessages['minLength']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'lastname','maxlength')">
+                {{validationMessages['maxLength']}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="college">College</label>
+            <input type="text" class="form-control" id="exampleInputCollege" placeholder="Enter your college" formControlName="college">
+            <div *ngIf="toggleValidMessages(i,'college','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'college','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'college','minlength')">
+                {{validationMessages['minLength']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'college','maxlength')">
+                {{validationMessages['maxLength']}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="exampleInputAddress">Address</label>
+            <input type="text" class="form-control" id="exampleInputAddress" placeholder="Enter your address" formControlName="address">
+            <div *ngIf="toggleValidMessages(i,'address','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'address','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'address','minlength')">
+                {{ validationMessages['minLength']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'address','maxlength')">
+                {{ validationMessages['maxLength']}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label for="rollnumb">RollNo</label>
+            <input type="text" class="form-control" placeholder="Enter your roll number" id="rollNumber" formControlName="rollnumb">
+            <div *ngIf="toggleValidMessages(i,'rollnumb','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'rollnumb','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'rollnumb','pattern')">
+                {{validationMessages['pattern']+"12885A0431"}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="branch">Branch</label>
+            <select input type="text" class="form-control" name="branch" formControlName="branch">
+              <option value="EEE">IT</option>
+              <option value="CSE">CSE</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+              <option value="EEE">Mech</option>
+              <option value="ECE">CIVIL</option>
+            </select>
+            <div *ngIf="toggleValidMessages(i,'branch','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'branch','required')">
+                {{validationMessages['required']}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="year">Year</label>
+            <input type="text" class="form-control" placeholder="Enter the passed out year" formControlName="year">
+            <div *ngIf="toggleValidMessages(i,'year','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'year','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'year','pattern')">
+                {{'Year'+validationMessages['patt']+'2014-2018'}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="dob">DOB</label>
+            <input type="text" class="form-control" id="dob" formControlName="dob" placeholder="DDMMYYYY">
+            <div *ngIf="toggleValidMessages(i,'dob','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'dob','required')">
+                {{ validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'dob','pattern')">
+                {{'DOB'+validationMessages['pattern']+'DDMMYYYY(01011994)'}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="email">Email</label>
+            <input type="Email" class="form-control" placeholder="Enter your Email address" formControlName="email">
+            <div *ngIf="toggleValidMessages(i,'email','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'email','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'email','pattern')">
+                {{'Email'+validationMessages['pattern']+'aaaaa@aaaa.aaa'}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-3">
+            <label for="mobile">Mobile No</label>
+            <input type="text" class="form-control " placeholder="enter your mobile number" formControlName="mobile">
+            <div *ngIf="toggleValidMessages(i,'mobile','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'mobile','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'mobile','pattern')">
+                {{'Number'+validationMessages['patt']+'10 Digits'}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-3">
+            <label for="phone">phone No</label>
+            <input type="text" class="form-control " placeholder="enter your phone number" formControlName="phone">
+            <div *ngIf="toggleValidMessages(i,'phone','')" class="alert alert-danger">
+              <div *ngIf="toggleValidMessages(i,'phone','required')">
+                {{validationMessages['required']}}
+              </div>
+              <div *ngIf="toggleValidMessages(i,'phone','pattern')">
+                {{'Number'+validationMessages['patt']+'10 Digits'}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary" (click)="AddNew()" [disabled]="studentForm.value.students[9]">Add</button>
+      <button type="submit" class="btn btn-success" [disabled]="!studentForm.valid||!studentForm.value.students[9]">Submit</button>
+    </div>
+  </form>
+</div>
+<hr>
+<div class="block">
+  <table class="table table-condensed table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">College</th>
+        <th scope="col">Address</th>
+        <th scope="col">Roll Number</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Year</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Email</th>
+        <th scope="col">Mobile No</th>
+        <th scope="col">Phone No</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of lists">
+        <td>{{list.firstname}}</td>
+        <td>{{list.lastname}}</td>
+        <td>{{list.college}}</td>
+        <td>{{list.address}}</td>
+        <td>{{list.branch}}</td>
+        <td>{{list.rollnumb}}</td>
+        <td>{{list.year}}</td>
+        <td>{{list.dob | date}}</td>
+        <td>{{list.email}}</td>
+        <td>{{list.mobile | telephone}}</td>
+        <td>{{list.phone | telephone}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
