@@ -1,3 +1,4 @@
+
 <div class="container reg">
 <form [formGroup]="StudentForm" (ngSubmit)="onSubmit()" novalidate>
      
@@ -233,11 +234,12 @@
         <!-- End of the repeated address template -->
         
       </div>
-      <button type="submit"  class="btn btn-success" [disabled]="!StudentForm.value.studentlist[1]"  >Submit</button>
-      <button (click)="addrow()"  class="btn btn-success" type="button">AddRow</button>
+      <button type="submit"  class="btn btn-success" [disabled]="!StudentForm.valid || !StudentForm.value.studentlist[9]"  >Submit</button>
+      <button (click)="addrow()"  class="btn btn-success" type="button" [disabled]="StudentForm.value.studentlist[9]" >AddRow</button>
     </div>
   </form>
 </div>
+
   <p></p>
   <div class="sty">
     <table class="table table-striped">
@@ -268,7 +270,7 @@
           <td>{{user.yearofpassedout}}</td>
           <td>{{user.place}}</td>
           <td>{{user.phoneno | phone}}</td>
-          <td>{{user.phoneno2 | phone2}}</td>
+          <td>{{user.phoneno2 | phone2:"+91-"}}</td>
   
         </tr>
       </tbody>

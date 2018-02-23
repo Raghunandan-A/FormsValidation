@@ -10,19 +10,17 @@ import { user } from '../reactive';
 export class FormRepeatComponent {
 
   StudentForm: FormGroup;
-
-
-      required= ' is required'
-      minlength= ' should be min 5 characters'
-      maxlength= ' should be max 50 characters'
-      pattern= 'only Alphabets are allowed'
-      rlno = 'Rollno should be in 12345A6789 format'
-      emailpat = 'should match the pattern xxxxx@xx.xx'
-      YOP = '2015-2017 is allowed'
-      telmin = 'Should me min 10 numbers'
-      telmax = 'Should me max 10 numbers'
-      telpat = 'only numbers allowed'
-      DOB = 'only numbers are allowed'
+  required = ' is required'
+  minlength = ' should be min 5 characters'
+  maxlength = ' should be max 50 characters'
+  pattern = 'only Alphabets are allowed'
+  rlno = 'Rollno should be in 12345A6789 format'
+  emailpat = 'should match the pattern xxxxx@xx.xx'
+  YOP = '2015-2017 is allowed'
+  telmin = 'Should me min 10 numbers'
+  telmax = 'Should me max 10 numbers'
+  telpat = 'only numbers allowed'
+  DOB = 'only numbers are allowed'
   list: user[] = [];
 
   constructor(
@@ -46,14 +44,13 @@ export class FormRepeatComponent {
 
   }
 
-
   addrow() {
     this.studentlist.push(this.fb.group({
       firstname: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('^[a-zA-Z_ ]+$')]],
       lastname: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('^[a-zA-Z_ ]+$')]],
       rollno: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]{5}[A-Z]{1}[0-9]{4}$')]],
       branch: ['', [Validators.required, , Validators.minLength(5), Validators.maxLength(50), Validators.pattern('^[a-zA-Z_ ]+$')]],
-      dateofbirth: ['', [Validators.required,Validators.pattern('^[0-9]{8}$')]],
+      dateofbirth: ['', [Validators.required, Validators.pattern('^[0-9]{8}$')]],
       email: ['', [Validators.required, Validators.pattern('^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$')]],
       college: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), Validators.pattern('^[a-zA-Z_ ]+$')]],
       yearofpassedout: ['', [Validators.required, Validators.pattern('^[2]{1}[0]{1}[1]{1}[5-7]{1}$')]],
@@ -82,15 +79,15 @@ export class FormRepeatComponent {
   //   }
   // }
 
-  showHideValidationMessage(index, fieldName, property){
+  showHideValidationMessage(index, fieldName, property) {
     //StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].errors && StudentForm.controls.studentlist['controls'][i]['controls']['lastname'].touched
     //return true;
-    switch(property){
+    switch (property) {
       case '':
         return this.StudentForm.controls.studentlist['controls'][index]['controls'][fieldName].errors && this.StudentForm.controls.studentlist['controls'][index]['controls'][fieldName].touched
       case 'required':
         return this.StudentForm.controls.studentlist['controls'][index]['controls'][fieldName].errors.required
-        
+
       case 'minlength':
         return this.StudentForm.controls.studentlist['controls'][index]['controls'][fieldName].errors.minlength
       case 'maxlength':
@@ -106,9 +103,11 @@ export class FormRepeatComponent {
     // this.myGroup.value.dateofbirth = new (this.myGroup.value.dateofbirth.substr(4, 4), this.myGroup.value.dateofbirth.substr(2, 2) - 1, this.myGroup.value.dateofbirth.substr(0, 2));
 
     for (let i = 0; i < this.studentlist.length; i++) {
-      let month: number = this.StudentForm.value.studentlist[i].dateofbirth.substring(2, 4);
-      month = month - 1;
-      this.StudentForm.value.studentlist[i].dateofbirth = new Date(this.StudentForm.value.studentlist[i].dateofbirth.substring(4), month, this.StudentForm.value.studentlist[i].dateofbirth.substring(0, 2));
+      if( this.StudentForm.value.studentlist[i].dateofbirth){
+        let month: number = this.StudentForm.value.studentlist[i].dateofbirth.substring(2, 4);
+        month = month - 1;
+        this.StudentForm.value.studentlist[i].dateofbirth = new Date(this.StudentForm.value.studentlist[i].dateofbirth.substring(4), month, this.StudentForm.value.studentlist[i].dateofbirth.substring(0, 2));
+      }
       this.list.push(this.StudentForm.value.studentlist[i]);
     }
 

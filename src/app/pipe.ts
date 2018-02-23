@@ -17,10 +17,10 @@ export class PhonePipe{
     name: 'phone2' 
 })
 export class PhonePipe2{
-    transform(value: String, args?: string): any {
+    transform(value: String,ccode:string, args?: string): any {
         if (!value) {
           return value;
         }
-        return value.replace(/(\d\d\d)(\d\d\d)(\d\d\d\d)/, '+91 $1$2$3');
+        return value.replace(/(\d\d\d)(\d\d\d)(\d\d\d\d)/, ccode+'$1$2$3');
       }
 }
