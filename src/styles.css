@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+.reg{
+    border: 1px solid #0e0d0d;
+    background-color: #e8eff1; 
+    padding: 1%; 
+}
+.sty{
+    margin: auto;
+}
+@keyframes alertAnim{
+    from { opacity : 0;
+    transform: translateY(-20px);}
+    to { opacity : 1;
+        transform: translateY(0px);}
+}
+
+.alert{
+    background: #eed7d7;
+    padding: 7px;
+    font-size: .9em;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: 2s alertAnim forwards;
+}
+/* body{
+    background-image: url('https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Plain-Background-Screen-Download-PIC-WPE001788.jpg');
+} */

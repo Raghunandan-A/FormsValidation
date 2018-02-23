@@ -1,0 +1,278 @@
+
+<div class="container reg">
+<form [formGroup]="StudentForm" (ngSubmit)="onSubmit()" novalidate>
+     
+      <!-- <button type="reset" (click)="revert()"
+              [disabled]="StudentForm.pristine" class="btn btn-danger">Revert</button> -->
+    
+  
+    <div formArrayName="studentlist" class="well well-lg">
+      <div *ngFor="let address of studentlist.controls; let i=index" [formGroupName]="i">
+          <h4>Form {{i + 1}}</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label >Firstname:</label>
+                <input class="form-control" formControlName="firstname" placeholder="Enter Firstname">
+                <div *ngIf="showHideValidationMessage(i, 'firstname', '')"
+                class="alert alert-danger">
+                <div *ngIf="showHideValidationMessage(i, 'firstname', 'required')">
+                 Firstname {{required}}
+                </div>
+                <div *ngIf="showHideValidationMessage(i, 'firstname', 'minlength')">
+                  Firstname {{minlength}}
+                </div>
+                <div *ngIf="showHideValidationMessage(i, 'firstname', 'maxlength')">
+                  Firstname {{maxlength}}
+                </div>
+                <div *ngIf="showHideValidationMessage(i, 'firstname', 'pattern')">
+                  {{pattern}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label >lastname:</label>
+                <input class="form-control" formControlName="lastname" placeholder="Enter Lastname">
+                <div *ngIf="showHideValidationMessage(i, 'lastname', '')"
+                class="alert alert-danger">
+                <div *ngIf="showHideValidationMessage(i, 'lastname', 'required')">
+                  Lastname {{required}}
+                </div>
+                <div *ngIf="showHideValidationMessage(i, 'lastname', 'minlength')">
+                  Lastname {{minlength}}
+                </div>
+                <div *ngIf="showHideValidationMessage(i, 'lastname', 'maxlength')">
+                  Lastname {{maxlength}}
+                </div>
+                <div *ngIf="showHideValidationMessage(i, 'lastname', 'pattern')">
+                  {{pattern}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+        <div class="form-group">
+          <label >Rollno:</label>
+            <input class="form-control" formControlName="rollno" placeholder="Enter Roll Number">
+            <div *ngIf="showHideValidationMessage(i, 'rollno', '')"
+            class="alert alert-danger">
+            <div *ngIf="showHideValidationMessage(i, 'rollno', 'required')">
+              Rollno {{required}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'rollno', 'pattern')">
+              {{rlno}}
+            </div>
+          </div>
+  
+  
+          </div>
+        </div>
+        <div class="col-md-4">
+        <div class="form-group">
+          <label >Branch:</label>
+            <input class="form-control" formControlName="branch" placeholder="Enter Your Branch">
+            <div *ngIf="showHideValidationMessage(i, 'branch', '')"
+            class="alert alert-danger">
+            <div *ngIf="showHideValidationMessage(i, 'branch', 'required')">
+              Branch {{required}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'branch', 'minlength')">
+              Branch {{minlength}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'branch', 'pattern')">
+             {{pattern}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'branch', 'maxlength')">
+              Branch {{maxlength}}
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+        <div class="form-group">
+          <label >Date Of Birth:</label>
+            <input class="form-control" formControlName="dateofbirth" placeholder="Enter Your Date Of Birth">
+            <div *ngIf="showHideValidationMessage(i, 'dateofbirth', '')"
+            class="alert alert-danger">
+            <div *ngIf="showHideValidationMessage(i, 'dateofbirth', 'required')">
+              Dateofbirth {{required}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'dateofbirth', 'pattern')">
+              {{DOB}}
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+        <div class="form-group">
+          <label >Email:</label>
+            <input class="form-control" formControlName="email" placeholder="Enter Your Email">
+            <div *ngIf="showHideValidationMessage(i, 'email', '')"
+            class="alert alert-danger">
+            <div *ngIf="showHideValidationMessage(i, 'email', 'required')">
+              Email {{required}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'email', 'pattern')">
+              {{emailpat}}
+            </div>
+          </div>
+        </div>
+          </div>
+          <div class="col-md-6">
+        <div class="form-group">
+          <label >College:</label>
+            <input class="form-control" formControlName="college" placeholder="Enter College Name">
+            <div *ngIf="showHideValidationMessage(i, 'college', '')"
+            class="alert alert-danger">
+            <div *ngIf="showHideValidationMessage(i, 'college', 'required')">
+              college {{required}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'college', 'minlength')">
+              college {{minlength}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'college', 'maxlength')">
+              college {{maxlength}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'college', 'pattern')">
+              {{pattern}}
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+        <div class="form-group">
+          <label >Year of passedout:</label>
+            <input class="form-control" formControlName="yearofpassedout" placeholder="Enter Year Of Passed Out">
+            <div *ngIf="showHideValidationMessage(i, 'yearofpassedout', '')"
+            class="alert alert-danger">
+            <div *ngIf="showHideValidationMessage(i, 'yearofpassedout', 'required')">
+              Year of Passedout {{required}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'yearofpassedout', 'pattern')">
+              {{YOP}}
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+        <div class="form-group">
+          <label >Place:</label>
+            <input class="form-control" formControlName="place" placeholder="Enter Your Place">
+            <div *ngIf="showHideValidationMessage(i, 'place', '')"
+            class="alert alert-danger">
+            <div *ngIf="showHideValidationMessage(i, 'place', 'required')">
+              Place {{required}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'place', 'minlength')">
+              Place {{minlength}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'place', 'maxlength')">
+              Place {{maxlength}}
+            </div>
+            <div *ngIf="showHideValidationMessage(i, 'place', 'pattern')">
+              {{pattern}}
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+     
+ <div class="row">
+  <div class="col-md-6">
+  <div class="form-group">
+    <label>Phoneno: </label>
+      <input class="form-control" formControlName="phoneno" placeholder="Enter Your Phonenumber">
+      <div *ngIf="showHideValidationMessage(i, 'phoneno', '')"
+      class="alert alert-danger">
+      <div *ngIf="showHideValidationMessage(i, 'phoneno', 'required')">
+        Phonenumber {{required}}
+      </div>
+      <div *ngIf="showHideValidationMessage(i, 'phoneno', 'minlength')">
+        {{telmin}}
+      </div>
+      <div *ngIf="showHideValidationMessage(i, 'phoneno', 'maxlength')">
+        {{telmax}}
+      </div>
+      <div *ngIf="showHideValidationMessage(i, 'phoneno', 'pattern')">
+        {{telpat}}
+      </div>
+  </div>
+  </div>
+</div>
+  <div class="col-md-6">
+  <div class="form-group">
+    <label>Phoneno:</label>
+      <input class="form-control" formControlName="phoneno2" placeholder="Enter Your Phonenumber">
+<div *ngIf="showHideValidationMessage(i, 'phoneno2', '')"
+      class="alert alert-danger      ">
+      <div *ngIf="showHideValidationMessage(i, 'phoneno2', 'required')">
+        Phonenumber {{required}}
+      </div>
+      <div *ngIf="showHideValidationMessage(i, 'phoneno2', 'minlength')">
+        {{telmin}}
+      </div>
+      <div *ngIf="showHideValidationMessage(i, 'phoneno2', 'maxlength')">
+        {{telmax}}
+      </div>
+      <div *ngIf="showHideValidationMessage(i, 'phoneno2', 'pattern')">
+        {{telpat}}
+      </div>
+    </div>
+    
+  </div>
+  </div>
+  </div>
+        <br>
+        <!-- End of the repeated address template -->
+        
+      </div>
+      <button type="submit"  class="btn btn-success" [disabled]="!StudentForm.valid || !StudentForm.value.studentlist[9]"  >Submit</button>
+      <button (click)="addrow()"  class="btn btn-success" type="button" [disabled]="StudentForm.value.studentlist[9]" >AddRow</button>
+    </div>
+  </form>
+</div>
+
+  <p></p>
+  <div class="sty">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">F.Name</th>
+          <th scope="col">L.Name</th>
+          <th scope="col">RollNo</th>
+          <th scope="col">Branch</th>
+          <th scope="col">D.O.B</th>
+          <th scope="col">Email</th>
+          <th scope="col">college</th>
+          <th scope="col">Y.O.P.O</th>
+          <th scope="col">Place</th>
+          <th scope="col">Ph.No</th>
+          <th scope="col">Ph.No</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of list">
+          <td>{{user.firstname}}</td>
+          <td>{{user.lastname}}</td>
+          <td>{{user.rollno}}</td>
+          <td>{{user.branch}}</td>
+          <td>{{user.dateofbirth | date:"dd/MM/yyyy"}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.college}}</td>
+          <td>{{user.yearofpassedout}}</td>
+          <td>{{user.place}}</td>
+          <td>{{user.phoneno | phone}}</td>
+          <td>{{user.phoneno2 | phone2:"+91-"}}</td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
