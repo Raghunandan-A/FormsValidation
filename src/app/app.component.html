@@ -1,20 +1,172 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<div class="container">
+  <h1 class="well">Registration Form</h1>
+<div class="col-lg-12 well">
+<div class="row">
+  <form>
+        <div class="col-sm-12">
+          <div class="col">
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+              <label>First Name</label>
+              <input type="text" name="firstname" id="firstname" formControlName="firstname" placeholder="Enter First Name" class="form-control"  [value]="firstname" (input)="firstname = $event.target.value">
+              <div *ngIf="complexForm.controls['firstname'].errors">
+                <div *ngIf="complexForm.controls['firstname'].errors.required">FirstName required</div>
+                <div *ngIf="complexForm.controls['firstname'].errors.minlength">FirstName minimum length is 5 digits</div>
+                <div *ngIf="complexForm.controls['firstname'].errors.maxlength">FirstName maximum length is 50 digits</div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col">
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+              <label>Last Name</label>
+              <input type="text" name="lastname" id="lastname" formControlName="lastname" placeholder="Enter Last Name" class="form-control"  [value]="lastname" (input)="lastname = $event.target.value">
+              <div *ngIf="complexForm.controls['lastname'].errors">
+                  <div *ngIf="complexForm.controls['lastname'].errors.required">LastName required</div>
+                  <div *ngIf="complexForm.controls['lastname'].errors.minlength">LastName minimum length is 5 digits</div>
+                  <div *ngIf="complexForm.controls['lastname'].errors.maxlength">LastName maximum length is 50 digits</div>
+              </div>
+                </form>
+            </div>
+          </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+              <label>Roll Number (Eg. 11111A1111)</label>
+              <input type="text" name="rollno" id="rollno" formControlName="rollno" placeholder="5 digits + 1 character + 4 digits" class="form-control"  [value]="rollno" (input)="rollno = $event.target.value">
+              <div *ngIf="complexForm.controls['rollno'].errors">
+                  <div *ngIf="complexForm.controls['rollno'].errors.pattern">Pattern should be (5 digits + 1 character + 4 digits)</div>
+              </div>
+              </form>
+            </div>
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+              <label>Branch</label>
+              <input type="text" name="branch" id="branch" formControlName="branch" placeholder="Enter Branch Name" class="form-control" [value]="branch" (input)="branch = $event.target.value">
+              <div *ngIf="complexForm.controls['branch'].errors">
+                  <div *ngIf="complexForm.controls['branch'].errors.required">BranchName required</div>
+              </div>
+                </form>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-sm-6 form-group">
+                  <form [formGroup]="complexForm">
+                  <label>Date Of Birth</label>
+                  <input type="text" name="dob" id="dob" formControlName="dob"  placeholder="Enter Date Of Birth (Eg. 02/10/1999)" class="form-control" [value]="dob" (input)="dob = $event.target.value">
+                  <div *ngIf="complexForm.controls['dob'].errors">
+                      <div *ngIf="complexForm.controls['dob'].errors.pattern">Date of birth pattern (dd/mm/yyyy) required</div>
+                  </div>
+                  </form>
+                </div>	
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+              <label>Year Of Pass</label>
+              <input type="number" name="yop" id="yop" formControlName="yop" placeholder="Enter Year Of Pass" class="form-control" min="2014" max="2018"   [value]="yop" (input)="yop = $event.target.value">
+              <div *ngIf="complexForm.controls['yop'].errors">
+                  <div *ngIf="complexForm.controls['yop'].errors.min">Year of pass should be greater than or equal to 2014</div>
+                  <div *ngIf="complexForm.controls['yop'].errors.max">Year of pass should be greater than or equal to 2018</div>
+                  <div *ngIf="complexForm.controls['yop'].errors.minlength">Year of pass minimum length is 4</div>
+                  <div *ngIf="complexForm.controls['yop'].errors.maxlength">Year of pass maximum length is 4</div>
+              </div>
+                </form>
+            </div>			
+          </div>
+
+          <div class="row">
+              <div class="col-sm-6 form-group">
+                  <form [formGroup]="complexForm">
+                  <label>Place</label>
+                  <input type="text" name="place" id="place" formControlName="place" placeholder="Enter Place Name" class="form-control"  [value]="place" (input)="place = $event.target.value">
+                  <div *ngIf="complexForm.controls['place'].errors">
+                      <div *ngIf="complexForm.controls['place'].errors.required">Place required</div>
+                      <div *ngIf="complexForm.controls['place'].errors.minlength">Place minimum length is 5 digits</div>
+                      <div *ngIf="complexForm.controls['place'].errors.maxlength">Place maximum length is 50 digits</div>
+                  </div>
+                  </form>
+                </div>	
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+              <label>College</label>
+              <input type="text" name="college" id="college" formControlName="college" placeholder="Enter College Name" class="form-control"  [value]="college" (input)="college = $event.target.value">
+              <div *ngIf="complexForm.controls['college'].errors">
+                  <div *ngIf="complexForm.controls['college'].errors.required">CollegeName required</div>
+                  <div *ngIf="complexForm.controls['college'].errors.minlength">CollegeName minimum length is 5 digits</div>
+                  <div *ngIf="complexForm.controls['college'].errors.maxlength">CollegeName maximum length is 50 digits</div>
+              </div>
+                </form>
+            </div>			
+          </div>
+
+          <div class="row">	
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+              <label>Email Address</label>
+              <input type="email" name="mail" id="mail" formControlName="mail" placeholder="Enter Email Address" class="form-control" [value]="mail" (input)="mail = $event.target.value">
+              <div *ngIf="complexForm.controls['mail'].errors">
+                  <div *ngIf="complexForm.controls['mail'].errors.required">MailId required</div>
+                  <div *ngIf="complexForm.controls['mail'].errors.pattern">MailId pattern incorrect</div>
+              </div>
+                </form>
+            </div>
+            <div class="col-sm-6 form-group">
+                <form [formGroup]="complexForm">
+                <label>Phone Number (Eg. +91(999)999-9999 )</label>
+                <input type="text" name="phone" id="phone" formControlName="phone" placeholder="3 digit prefix (3 digits) 3digits - 4digits" class="form-control" [value]="phone" (input)="phone = $event.target.value">
+                <div *ngIf="complexForm.controls['phone'].errors">
+                    <div *ngIf="complexForm.controls['phone'].errors.required">Phone No required</div>
+                    <div *ngIf="complexForm.controls['phone'].errors.pattern">Phone No pattern incorrect</div>
+                    <div *ngIf="complexForm.controls['phone'].errors.minlength">Phone No minimum length is 16</div>
+                    <div *ngIf="complexForm.controls['phone'].errors.maxlength">Phone No maximum length is 16</div>
+                </div>
+                </form>
+              </div>				
+          </div>
+      <div class="row">
+        <div class="col-sm-4 form-group">
+        <button type="button" (click)="submit()" class="btn btn-lg btn-info">Submit</button>
+      </div>
+      </div>
+      
+      </form> 
+      </div>
+</div>
+</div>
+
+<div>
+
+  <form>
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Roll Number</th>
+        <th>Branch Name</th>
+        <th>Date Of Birth</th>
+        <th>Year Of Pass</th>
+        <th>Place Name</th>
+        <th>College Name</th>
+        <th>Email Id</th>
+        <th>Phone Number</th>
+        </tr>
+      <tr *ngFor="let contacts of contact">
+        <td>{{contacts.firstname}}</td>
+        <td>{{contacts.lastname}}</td>
+        <td>{{contacts.rollno}}</td>
+        <td>{{contacts.branch}}</td>
+        <td>{{contacts.dob}}</td>
+        <td>{{contacts.yop}}</td>
+        <td>{{contacts.place}}</td>
+        <td>{{contacts.college}}</td>
+        <td>{{contacts.mail}}</td>
+        <td>{{contacts.phone}}</td>
+      </tr>
+      </table>		
+  </form>
+
+</div>
